@@ -23,11 +23,34 @@
     .grid-2, .grid-2b, .grid-3, .grid-2c, .form-grid { grid-template-columns:1fr !important; gap:16px !important; }
     .coach-photo { position:static !important; max-width:320px; margin:0 auto 8px; }
     .form-grid { padding:28px 22px !important; }
+    .sr-track { height:140vh !important; }
+    .sr-card { width:94vw !important; }
   }
+  .sr-track { position:relative; height:220vh; }
+  .sr-sticky { position:sticky; top:0; height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; overflow:hidden; }
+  .sr-card { position:relative; width:min(1100px,90vw); aspect-ratio:16/10; border-radius:28px; border:4px solid #2a2a2a; background:#111; overflow:hidden; box-shadow:0 40px 80px rgba(0,0,0,0.5); will-change:transform; }
+  .sr-video { width:100%; height:100%; object-fit:cover; display:block; }
+  .sr-overlay { position:absolute; inset:0; background:#0a0a0a; pointer-events:none; }
 </style>
 </head>
 <body>
 <div style="width:100%;min-width:320px;background:#0a0a0a;color:#ffffff;overflow-x:hidden">
+
+  <!-- ===== SCROLL VIDEO REVEAL ===== -->
+  <div style="background:#0a0a0a">
+    <div class="sr-track">
+      <div class="sr-sticky">
+        <div class="px" style="text-align:center;margin-bottom:28px">
+          <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:14px">REAL-TIME DATA</div>
+          <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:clamp(26px,4vw,42px);line-height:1.2;margin:0;color:#ffffff">숫자가 증명합니다</h2>
+        </div>
+        <div class="sr-card" id="srCard">
+          <video class="sr-video" src="assets/data-analytics.mp4" autoplay muted loop playsinline preload="auto"></video>
+          <div class="sr-overlay" id="srOverlay"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ===== HEADER + HERO ===== -->
   <div style="background:#0a0a0a;position:relative;border-bottom:1px solid #1f1f1f">
@@ -339,6 +362,38 @@
 </div>
 
 <script>
+  (function () {
+    var track = document.querySelector('.sr-track');
+    var card = document.getElementById('srCard');
+    var overlay = document.getElementById('srOverlay');
+    if (!track || !card) return;
+    var ticking = false;
+
+    function update() {
+      ticking = false;
+      var rect = track.getBoundingClientRect();
+      var vh = window.innerHeight;
+      var scrollRange = rect.height - vh;
+      var progress = scrollRange > 0 ? (-rect.top) / scrollRange : 1;
+      progress = Math.max(0, Math.min(1, progress));
+      var rotate = 20 * (1 - progress);
+      var scale = 0.82 + 0.18 * progress;
+      card.style.transform = 'perspective(1200px) rotateX(' + rotate + 'deg) scale(' + scale + ')';
+      overlay.style.opacity = (1 - progress) * 0.85;
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    update();
+  })();
+
   document.querySelectorAll('.mode-btn').forEach(function (btn) {
     btn.addEventListener('click', function () {
       document.querySelectorAll('.mode-btn').forEach(function (b) {
