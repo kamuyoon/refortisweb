@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REFORTIS | 다시, 강해지다</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#0a0a0a;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;word-break:keep-all}
+  *{box-sizing:border-box}
+  ::selection{background:#ffffff;color:#000}
+  a{color:#ffffff;text-decoration:none}
+  a:hover{color:#a3a3a3}
+  @keyframes kenburns{0%{transform:scale(1.06) translate(0,0)}100%{transform:scale(1.16) translate(-1%,-1%)}}
+  @keyframes kenburns2{0%{transform:scale(1.1) translate(0,0)}100%{transform:scale(1.02) translate(1%,0)}}
+  @keyframes fadeUp{0%{opacity:0;transform:translateY(16px)}100%{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<div style="width:100%;min-width:320px;background:#0a0a0a;color:#ffffff;overflow-x:hidden">
+
+  <!-- ===== HEADER + HERO ===== -->
+  <div style="background:#0a0a0a;position:relative;border-bottom:1px solid #1f1f1f">
+    <nav style="max-width:1320px;margin:0 auto;position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:26px 40px;gap:24px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <svg viewBox="0 0 120 120" width="24" height="24"><rect width="120" height="120" rx="26" fill="#0F172A"></rect><polyline points="18,72 60,88 102,28" stroke="#0d9488" stroke-width="14" fill="none" stroke-linecap="square" stroke-linejoin="miter"></polyline></svg>
+        <span style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.01em;font-size:19px;color:#ffffff">REFORTIS</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:34px;font-size:13px;font-weight:600;color:#d4d4d4;letter-spacing:0.03em;text-transform:uppercase">
+        <a href="#coach" style="color:#d4d4d4">코치 소개</a>
+        <a href="#method" style="color:#d4d4d4">방법론</a>
+        <a href="#results" style="color:#d4d4d4">회원 사례</a>
+        <a href="#pricing" style="color:#d4d4d4">가격</a>
+        <a href="#onepoint" style="color:#d4d4d4">원포인트</a>
+      </div>
+      <a href="#contact" style="background:#ffffff;color:#0a0a0a;padding:11px 22px;border-radius:100px;font-size:13px;font-weight:700;white-space:nowrap;letter-spacing:0.02em">상담 신청</a>
+    </nav>
+
+    <div style="position:relative;height:min(760px,92vh);min-height:520px;overflow:hidden">
+      <div style="position:absolute;inset:0;overflow:hidden">
+        <img src="assets/coach-portrait.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 20%;animation:kenburns 16s ease-in-out infinite alternate;transform-origin:60% 30%">
+      </div>
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,0.92) 0%,rgba(10,10,10,0.55) 42%,rgba(10,10,10,0.15) 68%,rgba(10,10,10,0.55) 100%)"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,10,0.85) 0%,rgba(10,10,10,0) 30%)"></div>
+
+      <div style="position:relative;z-index:1;max-width:1320px;margin:0 auto;height:100%;padding:0 40px;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:72px;animation:fadeUp 0.9s ease-out both">
+        <h1 style="font-family: 'Inter',sans-serif; font-weight: 900; letter-spacing: -0.03em; line-height: 1.04; margin: 0 0 22px; color: #ffffff; text-wrap: pretty; max-width: 720px; font-size: 50px">
+          임상처럼 보고, <br>데이터로 설계합니다.
+        </h1>
+        <p style="font-size:16px;line-height:1.7;color:#d4d4d4;max-width:440px;margin:0 0 32px">임상 평가와 스트렝스 프로그래밍을 하나의 시스템으로 연결합니다. 물리치료사이자 파워리프팅 국내기록 보유자가 설계한 <br>코칭 시스템입니다.
+        </p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="#contact" style="background:#ffffff;color:#0a0a0a;padding:15px 28px;border-radius:100px;font-size:14px;font-weight:700">상담 신청</a>
+          <a href="#pricing" style="background:rgba(255,255,255,0.06);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.35);color:#ffffff;padding:15px 28px;border-radius:100px;font-size:14px;font-weight:700;white-space:nowrap">가격 보기</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 문제 정의 ===== -->
+  <div style="max-width:1320px;margin:0 auto;padding:96px 40px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:center;border-bottom:1px solid #1f1f1f">
+    <div>
+      <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:14px">THE GRAY ZONE</div>
+      <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:clamp(26px,3vw,36px);line-height:1.2;margin:0;color:#ffffff">AN INTEGRATED SYSTEM</h2>
+    </div>
+    <p style="font-size: 17px; line-height: 1.85; color: #a3a3a3; margin: 0; text-wrap: pretty">저 역시 다치고 난 뒤, 그 사이에서 무엇을 해야 할지 알려주는 사람이 없었습니다. 그래서 직접 물리치료사가 됐고, 파워리프팅 선수가 됐습니다. REFORTIS는 그렇게 만들어진, 그 사이의 답입니다. 지금 같은 자리에 서 계시다면, <strong style="color:#ffffff;font-weight:600">그 답을 전해드리고 싶습니다.</strong></p>
+  </div>
+
+  <!-- ===== 방법론 ===== -->
+  <div id="method" style="background:#111111;padding:100px 40px;border-bottom:1px solid #1f1f1f">
+    <div style="max-width:1320px;margin:0 auto">
+      <div style="text-align:center;max-width:640px;margin:0 auto 64px">
+        <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:14px">METHODOLOGY</div>
+        <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:clamp(28px,3.4vw,38px);line-height:1.2;margin:0 0 16px;color:#ffffff">임상 평가 + 스트렝스 프로그래밍,<br>둘 다 제대로</h2>
+        <p style="font-size:15px;color:#a3a3a3;line-height:1.6;margin:0">올바른 평가와 헬스장을 넘는 체계, 그 위에 데이터가 쌓입니다.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+        <div style="background:#161616;border:1px solid #2a2a2a;border-radius:14px;padding:34px 30px">
+          <div style="font-family:'Inter',sans-serif;font-weight:900;letter-spacing:-0.03em;font-size:15px;color:#525252;margin-bottom:22px">01</div>
+          <h3 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:19px;margin:0 0 12px;color:#ffffff">임상 평가</h3>
+          <p style="font-size:14px;line-height:1.7;color:#a3a3a3;margin:0">레드/옐로 플래그 스크리닝과 통증 기전 분류를 기반으로, <br>평가로 시작합니다.</p>
+        </div>
+        <div style="background:#161616;border:1px solid #2a2a2a;border-radius:14px;padding:34px 30px">
+          <div style="font-family:'Inter',sans-serif;font-weight:900;letter-spacing:-0.03em;font-size:15px;color:#525252;margin-bottom:22px">02</div>
+          <h3 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:19px;margin:0 0 12px;color:#ffffff">스트렝스 프로그래밍</h3>
+          <p style="font-size:14px;line-height:1.7;color:#a3a3a3;margin:0">RPE 기반 e1RM 산출과 블록 주기화 — 헬스장 수준을 넘는 체계로 강해집니다.</p>
+        </div>
+        <div style="background:#161616;border:1px solid #2a2a2a;border-radius:14px;padding:34px 30px">
+          <div style="font-family:'Inter',sans-serif;font-weight:900;letter-spacing:-0.03em;font-size:15px;color:#525252;margin-bottom:22px">03</div>
+          <h3 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:19px;margin:0 0 12px;color:#ffffff">데이터로 추적</h3>
+          <p style="font-size:14px;line-height:1.7;color:#a3a3a3;margin:0">회원 데이터가 쌓일수록 더 정확해지는 처방. 감이 아니라 기록으로 코칭합니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 시네마틱 브레이크 ===== -->
+  <div style="position:relative;height:min(560px,72vh);min-height:400px;overflow:hidden;border-bottom:1px solid #1f1f1f">
+    <div style="position:absolute;inset:0;overflow:hidden">
+      <img src="assets/coach-bench.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:65% 45%;animation:kenburns2 18s ease-in-out infinite alternate">
+    </div>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,0.75) 0%,rgba(10,10,10,0.25) 35%,rgba(10,10,10,0.75) 100%)"></div>
+    <div style="position:relative;z-index:1;max-width:1320px;margin:0 auto;height:100%;padding:0 40px;display:flex;align-items:center">
+      <h2 style="font-family:'Inter',sans-serif;font-weight:900;letter-spacing:-0.03em;font-size:clamp(30px,4.4vw,52px);line-height:1.15;color:#ffffff;margin:0;max-width:620px;text-wrap:pretty">설계한 대로, <br>결과가 쌓입니다.</h2>
+    </div>
+  </div>
+
+  <!-- ===== 코치 소개 ===== -->
+  <div id="coach" style="max-width:1320px;margin:0 auto;padding:100px 40px;display:grid;grid-template-columns:0.8fr 1.2fr;gap:56px;align-items:start;border-bottom:1px solid #1f1f1f">
+    <div style="position:sticky;top:24px">
+      <div style="aspect-ratio:4/5;border-radius:14px;overflow:hidden">
+        <img src="assets/coach-portrait.jpg" alt="김강윤 코치" style="width:100%;height:100%;object-fit:cover;object-position:50% 25%">
+      </div>
+    </div>
+    <div>
+      <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:14px">ABOUT THE COACH</div>
+      <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:clamp(26px,3vw,34px);line-height:1.2;margin:0 0 6px;color:#ffffff">김강윤</h2>
+      <p style="font-size:15px;color:#a3a3a3;margin:0 0 32px">물리치료사 · 파워리프팅 벤치프레스 국가대표</p>
+
+      <div style="margin-bottom:32px">
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;color:#525252;margin-bottom:14px">CAREER</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;gap:12px;font-size:14.5px;color:#d4d4d4;line-height:1.6"><span style="color:#525252;flex:none">·</span>前 DR.STRENGTH 코치</div>
+          <div style="display:flex;gap:12px;font-size:14.5px;color:#d4d4d4;line-height:1.6"><span style="color:#525252;flex:none">·</span>前 TEAM ANT Online Coaching 코치</div>
+          <div style="display:flex;gap:12px;font-size:14.5px;color:#d4d4d4;line-height:1.6"><span style="color:#525252;flex:none">·</span>前 Basic for Strength 코치</div>
+          <div style="display:flex;gap:12px;font-size:14.5px;color:#d4d4d4;line-height:1.6"><span style="color:#525252;flex:none">·</span>前 서울준신경외과의원 근무</div>
+          <div style="display:flex;gap:12px;font-size:14.5px;color:#d4d4d4;line-height:1.6"><span style="color:#525252;flex:none">·</span>現 퍼스트 피지오짐 오송 근무</div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:32px">
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;color:#525252;margin-bottom:14px">COMPETITION RECORDS</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 20px">
+          <div style="display:flex;gap:12px;font-size:14px;color:#d4d4d4;line-height:1.55"><span style="color:#525252;flex:none">·</span>2019 ICN Physique Junior 1위</div>
+          <div style="display:flex;gap:12px;font-size:14px;color:#d4d4d4;line-height:1.55"><span style="color:#525252;flex:none">·</span>2019 IPFKorea Powerlifting Championship -59kg 1위</div>
+          <div style="display:flex;gap:12px;font-size:14px;color:#d4d4d4;line-height:1.55"><span style="color:#525252;flex:none">·</span>2022 Asian Powerlifting Championship 선발전 Junior -66kg 1위</div>
+          <div style="display:flex;gap:12px;font-size:14px;color:#d4d4d4;line-height:1.55"><span style="color:#525252;flex:none">·</span>2022 Asian Powerlifting Championship 대한민국 대표팀 선발</div>
+          <div style="display:flex;gap:12px;font-size:14px;color:#d4d4d4;line-height:1.55"><span style="color:#525252;flex:none">·</span>2023 USAPL Korea SummerSlam Bench Only 전체급 1위</div>
+          <div style="display:flex;gap:12px;font-size:14px;color:#d4d4d4;line-height:1.55"><span style="color:#525252;flex:none">·</span>2023 USAPL Korea SummerSlam Bench Only -67.5kg 1위</div>
+          <div style="display:flex;gap:12px;font-size:14px;color:#d4d4d4;line-height:1.55"><span style="color:#525252;flex:none">·</span>2024 USAPL England Bench World Cup -67.5kg 1위</div>
+          <div style="display:flex;gap:12px;font-size:14px;color:#d4d4d4;line-height:1.55"><span style="color:#525252;flex:none">·</span>2024 USAPL England Bench World Cup 오픈 전체급 3위</div>
+          <div style="display:flex;gap:12px;font-size:14px;color:#d4d4d4;line-height:1.55"><span style="color:#525252;flex:none">·</span>2024 USAPL England Bench World Cup 주니어 전체급 2위</div>
+          <div style="display:flex;gap:12px;font-size:14px;color:#d4d4d4;line-height:1.55"><span style="color:#525252;flex:none">·</span>2025 IDFPA Bench World -67.5kg 1위</div>
+          <div style="display:flex;gap:12px;font-size:14px;color:#d4d4d4;line-height:1.55"><span style="color:#525252;flex:none">·</span>USAPL -67.5kg 벤치프레스 한국 기록 보유</div>
+          <div style="display:flex;gap:12px;font-size:14px;color:#d4d4d4;line-height:1.55"><span style="color:#525252;flex:none">·</span>USAPL Junior 전체급 벤치프레스 1위</div>
+        </div>
+      </div>
+
+      <p style="font-size:15px;font-weight:600;color:#ffffff;margin:0;padding:16px 20px;background:#141414;border-left:3px solid #ffffff;border-radius:0 8px 8px 0">물리치료사 면허와 파워리프팅 국내기록. 임상과 경기, 둘 다 증명된 이력입니다.</p>
+    </div>
+  </div>
+
+  <!-- ===== 회원 사례 / 후기 ===== -->
+  <div id="results" style="background:#111111;padding:100px 40px;border-bottom:1px solid #1f1f1f">
+    <div style="max-width:1320px;margin:0 auto">
+      <div style="text-align:center;max-width:600px;margin:0 auto 64px">
+        <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:14px">MEMBER RESULTS</div>
+        <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:clamp(28px,3.4vw,38px);line-height:1.2;margin:0;color:#ffffff">숫자로 증명된 변화</h2>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+        <div style="background:#161616;border:1px solid #2a2a2a;border-radius:14px;padding:30px;display:flex;flex-direction:column;gap:18px">
+          <div style="font-size:12px;font-weight:700;color:#737373;letter-spacing:0.06em">CASE 01</div>
+          <h3 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:17px;color:#ffffff;margin:0;line-height:1.4">파워리프팅 챔피언이 된 30대 여성</h3>
+          <p style="font-size:13.5px;color:#a3a3a3;line-height:1.6;margin:0">운동 경험 전무 → 3년 만에 USAPL 내셔널 1위 등 다수 우승</p>
+          <div style="display:flex;flex-direction:column;gap:9px;padding-top:8px;border-top:1px solid #2a2a2a">
+            <div style="display:flex;justify-content:space-between;font-size:13.5px;color:#a3a3a3"><span>스쿼트</span><span style="color:#ffffff;font-weight:700">65 → 122.5kg</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:13.5px;color:#a3a3a3"><span>벤치프레스</span><span style="color:#ffffff;font-weight:700">37.5 → 62.5kg</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:13.5px;color:#a3a3a3"><span>데드리프트</span><span style="color:#ffffff;font-weight:700">82.5 → 145kg</span></div>
+          </div>
+        </div>
+        <div style="background:#161616;border:1px solid #2a2a2a;border-radius:14px;padding:30px;display:flex;flex-direction:column;gap:18px">
+          <div style="font-size:12px;font-weight:700;color:#737373;letter-spacing:0.06em">CASE 02</div>
+          <h3 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:17px;color:#ffffff;margin:0;line-height:1.4">물리치료사의 3대 중량 성장</h3>
+          <p style="font-size:13.5px;color:#a3a3a3;line-height:1.6;margin:0">임상 지식을 실전에 적용해 부상 없이 끌어올린 성장 곡선</p>
+          <div style="display:flex;flex-direction:column;gap:9px;padding-top:8px;border-top:1px solid #2a2a2a">
+            <div style="display:flex;justify-content:space-between;font-size:13.5px;color:#a3a3a3"><span>스쿼트</span><span style="color:#ffffff;font-weight:700">130 → 180kg</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:13.5px;color:#a3a3a3"><span>벤치프레스</span><span style="color:#ffffff;font-weight:700">90 → 130kg</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:13.5px;color:#a3a3a3"><span>데드리프트</span><span style="color:#ffffff;font-weight:700">150 → 200kg</span></div>
+          </div>
+        </div>
+        <div style="background:#161616;border:1px solid #ffffff;border-radius:14px;padding:30px;display:flex;flex-direction:column;gap:18px">
+          <div style="font-size:12px;font-weight:700;color:#d4d4d4;letter-spacing:0.06em">CASE 03 · FEATURED</div>
+          <h3 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:17px;color:#ffffff;margin:0;line-height:1.4">무릎 통증을 이겨낸 20대 여성</h3>
+          <p style="font-size:13.5px;color:#a3a3a3;line-height:1.6;margin:0">양쪽 무릎 통증으로 시작도 못 하던 상태 → 통증 개선 + 체중 49→57kg (167cm)</p>
+          <div style="display:flex;flex-direction:column;gap:9px;padding-top:8px;border-top:1px solid #2a2a2a">
+            <div style="display:flex;justify-content:space-between;font-size:13.5px;color:#a3a3a3"><span>스쿼트</span><span style="color:#ffffff;font-weight:700">17 → 55kg</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:13.5px;color:#a3a3a3"><span>벤치프레스</span><span style="color:#ffffff;font-weight:700">7 → 35kg</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:13.5px;color:#a3a3a3"><span>데드리프트</span><span style="color:#ffffff;font-weight:700">50 → 110kg</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 가격 ===== -->
+  <div id="pricing" style="padding:100px 40px;background:#0a0a0a;border-bottom:1px solid #1f1f1f">
+    <div style="max-width:1320px;margin:0 auto">
+      <div style="text-align:center;max-width:600px;margin:0 auto 64px">
+        <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:14px">PRICING</div>
+        <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:clamp(28px,3.4vw,38px);line-height:1.2;margin:0 0 16px;color:#ffffff">나에게 맞는 방식으로</h2>
+        <p style="font-size:15px;color:#a3a3a3;line-height:1.6;margin:0">목표와 상황에 따라 상담 후 맞춤 프로그램을 안내해 드립니다.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;align-items:stretch">
+        <div style="border:1px solid #2a2a2a;border-radius:14px;padding:34px 30px;display:flex;flex-direction:column;gap:22px">
+          <div>
+            <h3 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:19px;margin:0 0 8px;color:#ffffff">온라인 코칭 — 스트렝스</h3>
+            <p style="font-size:13.5px;color:#a3a3a3;margin:0;line-height:1.6">파워리프팅 · 3대 중량 향상이 목표라면</p>
+          </div>
+          <div style="font-family:'Inter',sans-serif;font-size:20px;font-weight:800;letter-spacing:-0.01em;color:#ffffff">상담 후 안내</div>
+          <div style="display:flex;flex-direction:column;gap:11px;flex:1">
+            <div style="font-size:13.5px;color:#d4d4d4;display:flex;gap:10px"><span style="color:#525252">✓</span>RPE 기반 e1RM 산출 · 블록 주기화</div>
+            <div style="font-size:13.5px;color:#d4d4d4;display:flex;gap:10px"><span style="color:#525252">✓</span>스쿼트 · 벤치 · 데드 개인 맞춤 프로그램</div>
+            <div style="font-size:13.5px;color:#d4d4d4;display:flex;gap:10px"><span style="color:#525252">✓</span>영상 피드백 · 폼 체크</div>
+            <div style="font-size:13.5px;color:#d4d4d4;display:flex;gap:10px"><span style="color:#525252">✓</span>지속적인 온라인 소통</div>
+          </div>
+          <a href="#contact" style="text-align:center;background:#141414;border:1px solid #2a2a2a;color:#ffffff;padding:13px;border-radius:10px;font-size:14px;font-weight:700">상담 신청</a>
+        </div>
+
+        <div style="border:2px solid #ffffff;border-radius:14px;padding:34px 30px;display:flex;flex-direction:column;gap:22px;position:relative;background:#141414">
+          <div style="position:absolute;top:-13px;left:30px;background:#ffffff;color:#0a0a0a;font-size:11.5px;font-weight:800;padding:4px 12px;border-radius:100px">가장 많이 선택</div>
+          <div>
+            <h3 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:19px;margin:0 0 8px;color:#ffffff">온라인 코칭 — 재활</h3>
+            <p style="font-size:13.5px;color:#a3a3a3;margin:0;line-height:1.6">통증 · 불편감을 회복하며 강해지고 싶다면</p>
+          </div>
+          <div style="font-family:'Inter',sans-serif;font-size:20px;font-weight:800;letter-spacing:-0.01em;color:#ffffff">상담 후 안내</div>
+          <div style="display:flex;flex-direction:column;gap:11px;flex:1">
+            <div style="font-size:13.5px;color:#d4d4d4;display:flex;gap:10px"><span style="color:#ffffff">✓</span>레드/옐로 플래그 임상 평가</div>
+            <div style="font-size:13.5px;color:#d4d4d4;display:flex;gap:10px"><span style="color: rgb(255, 255, 255);">✓</span>통증 기전 분류&nbsp;</div>
+            <div style="font-size:13.5px;color:#d4d4d4;display:flex;gap:10px"><span style="color:#ffffff">✓</span>재활 단계별 맞춤 프로그램</div>
+            <div style="font-size:13.5px;color:#d4d4d4;display:flex;gap:10px"><span style="color:#ffffff">✓</span>영상 피드백 · 지속적인 온라인 소통</div>
+          </div>
+          <a href="#contact" style="text-align:center;background:#ffffff;color:#0a0a0a;padding:13px;border-radius:10px;font-size:14px;font-weight:800">상담 신청</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 원포인트 코칭 ===== -->
+  <div id="onepoint" style="background:#111111;padding:100px 40px;border-bottom:1px solid #1f1f1f">
+    <div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:start">
+      <div>
+        <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:14px">ONE POINT CLASS</div>
+        <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:clamp(26px,3vw,34px);line-height:1.25;margin:0 0 14px;color:#ffffff">SQUAT · BENCH · DEADLIFT</h2>
+        <p style="font-size:15px;line-height:1.85;color:#a3a3a3;margin:0 0 28px">훈련을 하다 보면 지금 하고 있는 방식이 맞는지, 한 번쯤 점검해보고 싶어지는 순간이 있습니다.<br><br>본 수업은 스쿼트, 벤치프레스, 데드리프트 중 필요한 동작을 중심으로 진행됩니다. 놓치기 쉬운 디테일과 동작 흐름이 흐트러지는 지점을 중심으로 다루며, 수업 내용은 영상으로 정리해 이후 훈련에서도 참고할 수 있도록 제공합니다.</p>
+        <p style="font-size:13.5px;color:#737373;margin:0">장소와 일정은 DM으로 문의주세요.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="border:1px solid #2a2a2a;border-radius:14px;padding:28px 30px;display:flex;justify-content:space-between;align-items:center;gap:20px">
+          <div>
+            <h3 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.01em;font-size:18px;margin:0 0 6px;color:#ffffff">90분 원포인트</h3>
+            <p style="font-size:13px;color:#a3a3a3;margin:0">리뷰 이벤트 참여 시 할인 적용</p>
+          </div>
+          <div style="text-align:right;flex:none">
+            <div style="font-family:'Inter',sans-serif;font-size:22px;font-weight:800;color:#ffffff">15만원</div>
+            <div style="font-size:13px;color:#737373;text-decoration:line-through">일반가</div>
+            <div style="font-size:14px;color:#ffffff;font-weight:700;margin-top:4px">12만원 <span style="color:#737373;font-weight:500;font-size:12.5px">리뷰가</span></div>
+          </div>
+        </div>
+        <div style="border:1px solid #2a2a2a;border-radius:14px;padding:28px 30px;display:flex;justify-content:space-between;align-items:center;gap:20px">
+          <div>
+            <h3 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.01em;font-size:18px;margin:0 0 6px;color:#ffffff">60분 원포인트</h3>
+            <p style="font-size:13px;color:#a3a3a3;margin:0">리뷰 이벤트 참여 시 할인 적용</p>
+          </div>
+          <div style="text-align:right;flex:none">
+            <div style="font-family:'Inter',sans-serif;font-size:22px;font-weight:800;color:#ffffff">12만원</div>
+            <div style="font-size:13px;color:#737373;text-decoration:line-through">일반가</div>
+            <div style="font-size:14px;color:#ffffff;font-weight:700;margin-top:4px">10만원 <span style="color:#737373;font-weight:500;font-size:12.5px">리뷰가</span></div>
+          </div>
+        </div>
+        <a href="#contact" style="text-align:center;background:#ffffff;color:#0a0a0a;padding:15px;border-radius:10px;font-size:14.5px;font-weight:800;margin-top:8px">원포인트 수업 문의하기</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CTA ===== -->
+  <div id="contact" style="background:#0a0a0a;padding:100px 40px;border-bottom:1px solid #1f1f1f">
+    <div style="max-width:920px;margin:0 auto;text-align:center">
+      <h2 style="font-family:'Inter',sans-serif;font-weight:900;letter-spacing:-0.03em;font-size:clamp(28px,3.5vw,40px);color:#ffffff;margin:0 0 16px">다시 강해질 준비가 되셨다면</h2>
+      <p style="font-size:15px;color:#a3a3a3;margin:0 0 48px">간단한 정보를 남겨주시면 24시간 내로 연락드립니다.</p>
+
+      <form id="contact-form" style="background:#141414;border:1px solid #2a2a2a;border-radius:18px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:20px;text-align:left">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <label for="cf-name" style="font-size:12.5px;color:#a3a3a3;font-weight:700">이름</label>
+          <input id="cf-name" name="name" type="text" required style="height:48px;border-radius:10px;background:#0a0a0a;border:1px solid #2a2a2a;color:#ffffff;padding:0 14px;font-size:14px;font-family:'Inter',sans-serif">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <label for="cf-phone" style="font-size:12.5px;color:#a3a3a3;font-weight:700">연락처</label>
+          <input id="cf-phone" name="phone" type="tel" required style="height:48px;border-radius:10px;background:#0a0a0a;border:1px solid #2a2a2a;color:#ffffff;padding:0 14px;font-size:14px;font-family:'Inter',sans-serif">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;grid-column:1/-1">
+          <label for="cf-goal" style="font-size:12.5px;color:#a3a3a3;font-weight:700">현재 통증 · 목표 한 줄</label>
+          <input id="cf-goal" name="goal" type="text" style="height:48px;border-radius:10px;background:#0a0a0a;border:1px solid #2a2a2a;color:#ffffff;padding:0 14px;font-size:14px;font-family:'Inter',sans-serif">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;grid-column:1/-1">
+          <label style="font-size:12.5px;color:#a3a3a3;font-weight:700">선호 방식</label>
+          <div style="display:flex;gap:10px" role="radiogroup" aria-label="선호 방식">
+            <button type="button" class="mode-btn is-active" data-mode="원포인트" style="flex:1;height:44px;border-radius:10px;border:1px solid #ffffff;background:#1f1f1f;color:#ffffff;display:flex;align-items:center;justify-content:center;font-size:13.5px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif">원포인트</button>
+            <button type="button" class="mode-btn" data-mode="온라인" style="flex:1;height:44px;border-radius:10px;border:1px solid #2a2a2a;background:transparent;color:#a3a3a3;display:flex;align-items:center;justify-content:center;font-size:13.5px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif">온라인</button>
+          </div>
+          <input type="hidden" name="mode" id="cf-mode" value="원포인트">
+        </div>
+        <button type="submit" style="grid-column:1/-1;background:#ffffff;color:#0a0a0a;border:none;padding:16px;border-radius:10px;font-size:14.5px;font-weight:800;cursor:pointer;font-family:'Inter',sans-serif">상담 신청하기</button>
+      </form>
+      <p id="cf-status" style="font-size:13.5px;color:#a3a3a3;margin:20px 0 0;display:none"></p>
+
+      <p style="font-size:13.5px;color:#737373;margin:28px 0 0">또는 <a href="#" style="color:#ffffff">인스타그램</a>으로 편하게 문의하세요</p>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <div style="background:#0a0a0a;padding:32px 40px">
+    <div style="max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <svg viewBox="0 0 120 120" width="18" height="18"><rect width="120" height="120" rx="26" fill="#0F172A"></rect><polyline points="18,72 60,88 102,28" stroke="#0d9488" stroke-width="14" fill="none" stroke-linecap="square" stroke-linejoin="miter"></polyline></svg>
+        <span style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:14px;color:#ffffff">REFORTIS</span>
+      </div>
+      <div style="display:flex;gap:24px;font-size:12.5px;color:#737373">
+        <a href="#" style="color:#737373">개인정보처리방침</a>
+        <a href="#" style="color:#737373">인스타그램</a>
+      </div>
+      <div style="font-size:12.5px;color:#525252">© 2026 REFORTIS. All rights reserved.</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  document.querySelectorAll('.mode-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.mode-btn').forEach(function (b) {
+        b.style.border = '1px solid #2a2a2a';
+        b.style.background = 'transparent';
+        b.style.color = '#a3a3a3';
+      });
+      btn.style.border = '1px solid #ffffff';
+      btn.style.background = '#1f1f1f';
+      btn.style.color = '#ffffff';
+      document.getElementById('cf-mode').value = btn.dataset.mode;
+    });
+  });
+
+  document.getElementById('contact-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var status = document.getElementById('cf-status');
+    status.style.display = 'block';
+    status.textContent = '신청이 접수되었습니다. 24시간 내로 연락드리겠습니다.';
+    e.target.reset();
+  });
+</script>
+
+</body>
+</html>
