@@ -15,6 +15,15 @@
   @keyframes kenburns{0%{transform:scale(1.06) translate(0,0)}100%{transform:scale(1.16) translate(-1%,-1%)}}
   @keyframes kenburns2{0%{transform:scale(1.1) translate(0,0)}100%{transform:scale(1.02) translate(1%,0)}}
   @keyframes fadeUp{0%{opacity:0;transform:translateY(16px)}100%{opacity:1;transform:translateY(0)}}
+  @media (max-width: 860px) {
+    .nav-links { display:none !important; }
+    .nav { padding:18px 20px !important; }
+    .px { padding-left:20px !important; padding-right:20px !important; }
+    .sect { padding-top:56px !important; padding-bottom:56px !important; padding-left:20px !important; padding-right:20px !important; }
+    .grid-2, .grid-2b, .grid-3, .grid-2c, .form-grid { grid-template-columns:1fr !important; gap:16px !important; }
+    .coach-photo { position:static !important; max-width:320px; margin:0 auto 8px; }
+    .form-grid { padding:28px 22px !important; }
+  }
 </style>
 </head>
 <body>
@@ -22,12 +31,12 @@
 
   <!-- ===== HEADER + HERO ===== -->
   <div style="background:#0a0a0a;position:relative;border-bottom:1px solid #1f1f1f">
-    <nav style="max-width:1320px;margin:0 auto;position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:26px 40px;gap:24px">
+    <nav class="nav" style="max-width:1320px;margin:0 auto;position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:26px 40px;gap:24px">
       <div style="display:flex;align-items:center;gap:10px">
         <svg viewBox="0 0 120 120" width="24" height="24"><rect width="120" height="120" rx="26" fill="#0F172A"></rect><polyline points="18,72 60,88 102,28" stroke="#0d9488" stroke-width="14" fill="none" stroke-linecap="square" stroke-linejoin="miter"></polyline></svg>
         <span style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.01em;font-size:19px;color:#ffffff">REFORTIS</span>
       </div>
-      <div style="display:flex;align-items:center;gap:34px;font-size:13px;font-weight:600;color:#d4d4d4;letter-spacing:0.03em;text-transform:uppercase">
+      <div class="nav-links" style="display:flex;align-items:center;gap:34px;font-size:13px;font-weight:600;color:#d4d4d4;letter-spacing:0.03em;text-transform:uppercase">
         <a href="#coach" style="color:#d4d4d4">코치 소개</a>
         <a href="#method" style="color:#d4d4d4">방법론</a>
         <a href="#results" style="color:#d4d4d4">회원 사례</a>
@@ -44,7 +53,7 @@
       <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,0.92) 0%,rgba(10,10,10,0.55) 42%,rgba(10,10,10,0.15) 68%,rgba(10,10,10,0.55) 100%)"></div>
       <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,10,0.85) 0%,rgba(10,10,10,0) 30%)"></div>
 
-      <div style="position:relative;z-index:1;max-width:1320px;margin:0 auto;height:100%;padding:0 40px;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:72px;animation:fadeUp 0.9s ease-out both">
+      <div class="px" style="position:relative;z-index:1;max-width:1320px;margin:0 auto;height:100%;padding:0 40px;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:72px;animation:fadeUp 0.9s ease-out both">
         <h1 style="font-family: 'Inter',sans-serif; font-weight: 900; letter-spacing: -0.03em; line-height: 1.04; margin: 0 0 22px; color: #ffffff; text-wrap: pretty; max-width: 720px; font-size: 50px">
           임상처럼 보고, <br>데이터로 설계합니다.
         </h1>
@@ -59,7 +68,7 @@
   </div>
 
   <!-- ===== 문제 정의 ===== -->
-  <div style="max-width:1320px;margin:0 auto;padding:96px 40px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:center;border-bottom:1px solid #1f1f1f">
+  <div class="sect grid-2" style="max-width:1320px;margin:0 auto;padding:96px 40px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:center;border-bottom:1px solid #1f1f1f">
     <div>
       <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:14px">THE GRAY ZONE</div>
       <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:clamp(26px,3vw,36px);line-height:1.2;margin:0;color:#ffffff">AN INTEGRATED SYSTEM</h2>
@@ -68,7 +77,7 @@
   </div>
 
   <!-- ===== 방법론 ===== -->
-  <div id="method" style="background:#111111;padding:100px 40px;border-bottom:1px solid #1f1f1f">
+  <div id="method" class="sect" style="background:#111111;padding:100px 40px;border-bottom:1px solid #1f1f1f">
     <div style="max-width:1320px;margin:0 auto">
       <div style="text-align:center;max-width:640px;margin:0 auto 64px">
         <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:14px">METHODOLOGY</div>
@@ -76,7 +85,7 @@
         <p style="font-size:15px;color:#a3a3a3;line-height:1.6;margin:0">올바른 평가와 헬스장을 넘는 체계, 그 위에 데이터가 쌓입니다.</p>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+      <div class="grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
         <div style="background:#161616;border:1px solid #2a2a2a;border-radius:14px;padding:34px 30px">
           <div style="font-family:'Inter',sans-serif;font-weight:900;letter-spacing:-0.03em;font-size:15px;color:#525252;margin-bottom:22px">01</div>
           <h3 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:19px;margin:0 0 12px;color:#ffffff">임상 평가</h3>
@@ -102,14 +111,14 @@
       <img src="assets/coach-bench.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:65% 45%;animation:kenburns2 18s ease-in-out infinite alternate">
     </div>
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,0.75) 0%,rgba(10,10,10,0.25) 35%,rgba(10,10,10,0.75) 100%)"></div>
-    <div style="position:relative;z-index:1;max-width:1320px;margin:0 auto;height:100%;padding:0 40px;display:flex;align-items:center">
+    <div class="px" style="position:relative;z-index:1;max-width:1320px;margin:0 auto;height:100%;padding:0 40px;display:flex;align-items:center">
       <h2 style="font-family:'Inter',sans-serif;font-weight:900;letter-spacing:-0.03em;font-size:clamp(30px,4.4vw,52px);line-height:1.15;color:#ffffff;margin:0;max-width:620px;text-wrap:pretty">설계한 대로, <br>결과가 쌓입니다.</h2>
     </div>
   </div>
 
   <!-- ===== 코치 소개 ===== -->
-  <div id="coach" style="max-width:1320px;margin:0 auto;padding:100px 40px;display:grid;grid-template-columns:0.8fr 1.2fr;gap:56px;align-items:start;border-bottom:1px solid #1f1f1f">
-    <div style="position:sticky;top:24px">
+  <div id="coach" class="sect grid-2b" style="max-width:1320px;margin:0 auto;padding:100px 40px;display:grid;grid-template-columns:0.8fr 1.2fr;gap:56px;align-items:start;border-bottom:1px solid #1f1f1f">
+    <div class="coach-photo" style="position:sticky;top:24px">
       <div style="aspect-ratio:4/5;border-radius:14px;overflow:hidden">
         <img src="assets/coach-portrait.jpg" alt="김강윤 코치" style="width:100%;height:100%;object-fit:cover;object-position:50% 25%">
       </div>
@@ -132,7 +141,7 @@
 
       <div style="margin-bottom:32px">
         <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;color:#525252;margin-bottom:14px">COMPETITION RECORDS</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 20px">
+        <div class="grid-2c" style="display:grid;grid-template-columns:1fr 1fr;gap:10px 20px">
           <div style="display:flex;gap:12px;font-size:14px;color:#d4d4d4;line-height:1.55"><span style="color:#525252;flex:none">·</span>2019 ICN Physique Junior 1위</div>
           <div style="display:flex;gap:12px;font-size:14px;color:#d4d4d4;line-height:1.55"><span style="color:#525252;flex:none">·</span>2019 IPFKorea Powerlifting Championship -59kg 1위</div>
           <div style="display:flex;gap:12px;font-size:14px;color:#d4d4d4;line-height:1.55"><span style="color:#525252;flex:none">·</span>2022 Asian Powerlifting Championship 선발전 Junior -66kg 1위</div>
@@ -153,14 +162,14 @@
   </div>
 
   <!-- ===== 회원 사례 / 후기 ===== -->
-  <div id="results" style="background:#111111;padding:100px 40px;border-bottom:1px solid #1f1f1f">
+  <div id="results" class="sect" style="background:#111111;padding:100px 40px;border-bottom:1px solid #1f1f1f">
     <div style="max-width:1320px;margin:0 auto">
       <div style="text-align:center;max-width:600px;margin:0 auto 64px">
         <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:14px">MEMBER RESULTS</div>
         <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:clamp(28px,3.4vw,38px);line-height:1.2;margin:0;color:#ffffff">숫자로 증명된 변화</h2>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+      <div class="grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
         <div style="background:#161616;border:1px solid #2a2a2a;border-radius:14px;padding:30px;display:flex;flex-direction:column;gap:18px">
           <div style="font-size:12px;font-weight:700;color:#737373;letter-spacing:0.06em">CASE 01</div>
           <h3 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:17px;color:#ffffff;margin:0;line-height:1.4">파워리프팅 챔피언이 된 30대 여성</h3>
@@ -196,7 +205,7 @@
   </div>
 
   <!-- ===== 가격 ===== -->
-  <div id="pricing" style="padding:100px 40px;background:#0a0a0a;border-bottom:1px solid #1f1f1f">
+  <div id="pricing" class="sect" style="padding:100px 40px;background:#0a0a0a;border-bottom:1px solid #1f1f1f">
     <div style="max-width:1320px;margin:0 auto">
       <div style="text-align:center;max-width:600px;margin:0 auto 64px">
         <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:14px">PRICING</div>
@@ -204,7 +213,7 @@
         <p style="font-size:15px;color:#a3a3a3;line-height:1.6;margin:0">목표와 상황에 따라 상담 후 맞춤 프로그램을 안내해 드립니다.</p>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;align-items:stretch">
+      <div class="grid-2" style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;align-items:stretch">
         <div style="border:1px solid #2a2a2a;border-radius:14px;padding:34px 30px;display:flex;flex-direction:column;gap:22px">
           <div>
             <h3 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:19px;margin:0 0 8px;color:#ffffff">온라인 코칭 — 스트렝스</h3>
@@ -240,8 +249,8 @@
   </div>
 
   <!-- ===== 원포인트 코칭 ===== -->
-  <div id="onepoint" style="background:#111111;padding:100px 40px;border-bottom:1px solid #1f1f1f">
-    <div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:start">
+  <div id="onepoint" class="sect" style="background:#111111;padding:100px 40px;border-bottom:1px solid #1f1f1f">
+    <div class="grid-2" style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:start">
       <div>
         <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:14px">ONE POINT CLASS</div>
         <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:clamp(26px,3vw,34px);line-height:1.25;margin:0 0 14px;color:#ffffff">SQUAT · BENCH · DEADLIFT</h2>
@@ -278,12 +287,12 @@
   </div>
 
   <!-- ===== CTA ===== -->
-  <div id="contact" style="background:#0a0a0a;padding:100px 40px;border-bottom:1px solid #1f1f1f">
+  <div id="contact" class="sect" style="background:#0a0a0a;padding:100px 40px;border-bottom:1px solid #1f1f1f">
     <div style="max-width:920px;margin:0 auto;text-align:center">
       <h2 style="font-family:'Inter',sans-serif;font-weight:900;letter-spacing:-0.03em;font-size:clamp(28px,3.5vw,40px);color:#ffffff;margin:0 0 16px">다시 강해질 준비가 되셨다면</h2>
       <p style="font-size:15px;color:#a3a3a3;margin:0 0 48px">간단한 정보를 남겨주시면 24시간 내로 연락드립니다.</p>
 
-      <form id="contact-form" action="https://formspree.io/f/mlgqdrgo" method="POST" style="background:#141414;border:1px solid #2a2a2a;border-radius:18px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:20px;text-align:left">
+      <form id="contact-form" class="form-grid" action="https://formspree.io/f/mlgqdrgo" method="POST" style="background:#141414;border:1px solid #2a2a2a;border-radius:18px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:20px;text-align:left">
         <div style="display:flex;flex-direction:column;gap:8px">
           <label for="cf-name" style="font-size:12.5px;color:#a3a3a3;font-weight:700">이름</label>
           <input id="cf-name" name="name" type="text" required style="height:48px;border-radius:10px;background:#0a0a0a;border:1px solid #2a2a2a;color:#ffffff;padding:0 14px;font-size:14px;font-family:'Inter',sans-serif">
@@ -313,7 +322,7 @@
   </div>
 
   <!-- ===== FOOTER ===== -->
-  <div style="background:#0a0a0a;padding:32px 40px">
+  <div class="px" style="background:#0a0a0a;padding:32px 40px">
     <div style="max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
       <div style="display:flex;align-items:center;gap:10px">
         <svg viewBox="0 0 120 120" width="18" height="18"><rect width="120" height="120" rx="26" fill="#0F172A"></rect><polyline points="18,72 60,88 102,28" stroke="#0d9488" stroke-width="14" fill="none" stroke-linecap="square" stroke-linejoin="miter"></polyline></svg>
