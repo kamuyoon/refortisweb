@@ -35,6 +35,12 @@
     .sr-card { width:94vw !important; }
     .sect-head { margin-bottom:44px !important; }
   }
+  /* 3단계 — 스크롤 스냅 (데스크톱 전용, proximity = 가까울 때만 부드럽게 맞춤) */
+  @media (min-width: 861px) and (prefers-reduced-motion: no-preference) {
+    html { scroll-snap-type: y proximity; scroll-behavior: smooth; }
+    .snap { scroll-snap-align: start; }
+  }
+
   /* 2단계 — 한 화면에 하나씩 */
   .screen { min-height:100vh; min-height:100dvh; display:flex; align-items:center; }
   .screen > * { width:100%; }
@@ -76,7 +82,7 @@
   </div>
 
   <!-- ===== HEADER + HERO ===== -->
-  <div style="background:#0a0a0a;position:relative;border-bottom:1px solid #1f1f1f">
+  <div class="snap" style="background:#0a0a0a;position:relative;border-bottom:1px solid #1f1f1f">
     <nav class="nav" style="max-width:1320px;margin:0 auto;position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:26px 40px;gap:24px">
       <div style="display:flex;align-items:center;gap:10px">
         <svg viewBox="0 0 120 120" width="24" height="24"><rect width="120" height="120" rx="26" fill="#0F172A"></rect><polyline points="18,72 60,88 102,28" stroke="#0d9488" stroke-width="14" fill="none" stroke-linecap="square" stroke-linejoin="miter"></polyline></svg>
@@ -114,7 +120,7 @@
   </div>
 
   <!-- ===== 문제 정의 ===== -->
-  <div class="sect grid-2" data-stagger style="max-width:1320px;margin:0 auto;padding:168px 40px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:center;align-content:center;min-height:100dvh;border-bottom:1px solid #1f1f1f">
+  <div class="sect grid-2 snap" data-stagger style="max-width:1320px;margin:0 auto;padding:168px 40px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:center;align-content:center;min-height:100dvh;border-bottom:1px solid #1f1f1f">
     <div>
       <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:14px">THE GRAY ZONE</div>
       <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.025em;font-size:clamp(30px,4.2vw,48px);line-height:1.15;margin:0;color:#ffffff">AN INTEGRATED SYSTEM</h2>
@@ -123,7 +129,7 @@
   </div>
 
   <!-- ===== 방법론 ===== -->
-  <div id="method" class="sect" style="background:#111111;padding:168px 40px;border-bottom:1px solid #1f1f1f">
+  <div id="method" class="sect snap" style="background:#111111;padding:168px 40px;border-bottom:1px solid #1f1f1f">
     <div class="grid-sticky" style="max-width:1320px;margin:0 auto">
       <div class="sticky-head" data-reveal>
         <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:16px">METHODOLOGY</div>
@@ -152,7 +158,7 @@
   </div>
 
   <!-- ===== 시네마틱 브레이크 ===== -->
-  <div style="position:relative;height:min(560px,72vh);height:min(560px,72dvh);min-height:400px;overflow:hidden;border-bottom:1px solid #1f1f1f">
+  <div class="snap" style="position:relative;height:min(560px,72vh);height:min(560px,72dvh);min-height:400px;overflow:hidden;border-bottom:1px solid #1f1f1f">
     <div style="position:absolute;inset:0;overflow:hidden">
       <img src="assets/coach-bench.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:65% 45%;animation:kenburns2 18s ease-in-out infinite alternate">
     </div>
@@ -163,7 +169,7 @@
   </div>
 
   <!-- ===== 코치 소개 ===== -->
-  <div id="coach" class="sect grid-2b" style="max-width:1320px;margin:0 auto;padding:168px 40px;display:grid;grid-template-columns:0.8fr 1.2fr;gap:56px;align-items:start;border-bottom:1px solid #1f1f1f">
+  <div id="coach" class="sect grid-2b snap" style="max-width:1320px;margin:0 auto;padding:168px 40px;display:grid;grid-template-columns:0.8fr 1.2fr;gap:56px;align-items:start;border-bottom:1px solid #1f1f1f">
     <div class="coach-photo" style="position:sticky;top:24px">
       <div data-reveal style="aspect-ratio:4/5;border-radius:14px;overflow:hidden">
         <img src="assets/coach-portrait.jpg" alt="김강윤 코치" style="width:100%;height:100%;object-fit:cover;object-position:50% 25%">
@@ -208,7 +214,7 @@
   </div>
 
   <!-- ===== 회원 사례 / 후기 ===== -->
-  <div id="results" class="sect" style="background:#111111;padding:168px 40px;border-bottom:1px solid #1f1f1f">
+  <div id="results" class="sect snap" style="background:#111111;padding:168px 40px;border-bottom:1px solid #1f1f1f">
     <div class="grid-sticky" style="max-width:1320px;margin:0 auto">
       <div class="sticky-head" data-reveal>
         <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:16px">MEMBER RESULTS</div>
@@ -258,7 +264,7 @@
   </div>
 
   <!-- ===== 가격 ===== -->
-  <div id="pricing" class="sect screen" style="padding:168px 40px;background:#0a0a0a;border-bottom:1px solid #1f1f1f">
+  <div id="pricing" class="sect screen snap" style="padding:168px 40px;background:#0a0a0a;border-bottom:1px solid #1f1f1f">
     <div style="max-width:1320px;margin:0 auto">
       <div class="sect-head" data-reveal style="text-align:center;max-width:640px;margin:0 auto 80px">
         <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:14px">PRICING</div>
@@ -302,7 +308,7 @@
   </div>
 
   <!-- ===== 원포인트 코칭 ===== -->
-  <div id="onepoint" class="sect screen" style="background:#111111;padding:168px 40px;border-bottom:1px solid #1f1f1f">
+  <div id="onepoint" class="sect screen snap" style="background:#111111;padding:168px 40px;border-bottom:1px solid #1f1f1f">
     <div class="grid-2" data-stagger style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:start">
       <div>
         <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:14px">ONE POINT CLASS</div>
@@ -340,7 +346,7 @@
   </div>
 
   <!-- ===== CTA ===== -->
-  <div id="contact" class="sect screen" style="background:#0a0a0a;padding:168px 40px;border-bottom:1px solid #1f1f1f">
+  <div id="contact" class="sect screen snap" style="background:#0a0a0a;padding:168px 40px;border-bottom:1px solid #1f1f1f">
     <div style="max-width:920px;margin:0 auto;text-align:center">
       <h2 data-reveal style="font-family:'Inter',sans-serif;font-weight:900;letter-spacing:-0.03em;font-size:clamp(32px,4.6vw,54px);line-height:1.15;color:#ffffff;margin:0 0 18px">다시 강해질 준비가 되셨다면</h2>
       <p data-reveal style="font-size:15px;color:#a3a3a3;margin:0 0 48px">간단한 정보를 남겨주시면 24시간 내로 연락드립니다.</p>
