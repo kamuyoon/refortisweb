@@ -15,23 +15,33 @@
   @keyframes kenburns{0%{transform:scale(1.06) translate(0,0)}100%{transform:scale(1.16) translate(-1%,-1%)}}
   @keyframes kenburns2{0%{transform:scale(1.1) translate(0,0)}100%{transform:scale(1.02) translate(1%,0)}}
   @keyframes fadeUp{0%{opacity:0;transform:translateY(16px)}100%{opacity:1;transform:translateY(0)}}
+
+  /* 스크롤 진입 시 하나씩 올라오는 리빌 — .js 가 붙었을 때만 숨김(JS 실패 시 그대로 노출) */
+  .js [data-reveal]{opacity:0;transform:translateY(22px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
+  .js [data-reveal].in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){
+    .js [data-reveal],.js [data-reveal].in{opacity:1 !important;transform:none !important;transition:none !important}
+  }
+
   @media (max-width: 860px) {
     .nav-links { display:none !important; }
     .nav { padding:18px 20px !important; }
     .px { padding-left:20px !important; padding-right:20px !important; }
-    .sect { padding-top:56px !important; padding-bottom:56px !important; padding-left:20px !important; padding-right:20px !important; }
+    .sect { padding-top:88px !important; padding-bottom:88px !important; padding-left:20px !important; padding-right:20px !important; }
     .grid-2, .grid-2b, .grid-3, .grid-2c, .form-grid { grid-template-columns:1fr !important; gap:16px !important; }
     .coach-photo { position:static !important; max-width:320px; margin:0 auto 8px; }
     .form-grid { padding:28px 22px !important; }
-    .sr-track { height:140vh !important; }
+    .sr-track { height:140vh !important; height:140dvh !important; }
     .sr-card { width:94vw !important; }
+    .sect-head { margin-bottom:44px !important; }
   }
-  .sr-track { position:relative; height:220vh; }
-  .sr-sticky { position:sticky; top:0; height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; overflow:hidden; }
+  .sr-track { position:relative; height:220vh; height:220dvh; }
+  .sr-sticky { position:sticky; top:0; height:100vh; height:100dvh; display:flex; flex-direction:column; align-items:center; justify-content:center; overflow:hidden; }
   .sr-card { position:relative; width:min(1100px,90vw); aspect-ratio:16/10; border-radius:28px; border:4px solid #2a2a2a; background:#111; overflow:hidden; box-shadow:0 40px 80px rgba(0,0,0,0.5); will-change:transform; }
   .sr-video { width:100%; height:100%; object-fit:cover; display:block; }
   .sr-overlay { position:absolute; inset:0; background:#0a0a0a; pointer-events:none; }
 </style>
+<script>document.documentElement.className += ' js';</script>
 </head>
 <body>
 <div style="width:100%;min-width:320px;background:#0a0a0a;color:#ffffff;overflow-x:hidden">
@@ -42,7 +52,7 @@
       <div class="sr-sticky">
         <div class="px" style="text-align:center;margin-bottom:28px">
           <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:14px">REAL-TIME DATA</div>
-          <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:clamp(26px,4vw,42px);line-height:1.2;margin:0;color:#ffffff">숫자가 증명합니다</h2>
+          <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.025em;font-size:clamp(30px,4.6vw,52px);line-height:1.15;margin:0;color:#ffffff">숫자가 증명합니다</h2>
         </div>
         <div class="sr-card" id="srCard">
           <video class="sr-video" src="assets/data-analytics.mp4" autoplay muted loop playsinline preload="auto"></video>
@@ -69,7 +79,7 @@
       <a href="#contact" style="background:#ffffff;color:#0a0a0a;padding:11px 22px;border-radius:100px;font-size:13px;font-weight:700;white-space:nowrap;letter-spacing:0.02em">상담 신청</a>
     </nav>
 
-    <div style="position:relative;height:min(760px,92vh);min-height:520px;overflow:hidden">
+    <div style="position:relative;height:min(760px,92vh);height:min(760px,92dvh);min-height:520px;overflow:hidden">
       <div style="position:absolute;inset:0;overflow:hidden">
         <img src="assets/coach-portrait.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 20%;animation:kenburns 16s ease-in-out infinite alternate;transform-origin:60% 30%">
       </div>
@@ -77,7 +87,7 @@
       <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,10,0.85) 0%,rgba(10,10,10,0) 30%)"></div>
 
       <div class="px" style="position:relative;z-index:1;max-width:1320px;margin:0 auto;height:100%;padding:0 40px;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:72px;animation:fadeUp 0.9s ease-out both">
-        <h1 style="font-family: 'Inter',sans-serif; font-weight: 900; letter-spacing: -0.03em; line-height: 1.04; margin: 0 0 22px; color: #ffffff; text-wrap: pretty; max-width: 720px; font-size: 50px">
+        <h1 style="font-family: 'Inter',sans-serif; font-weight: 900; letter-spacing: -0.03em; line-height: 1.04; margin: 0 0 22px; color: #ffffff; text-wrap: pretty; max-width: 720px; font-size: clamp(46px, 5.2vw, 66px)">
           임상처럼 보고, <br>데이터로 설계합니다.
         </h1>
         <p style="font-size:16px;line-height:1.7;color:#d4d4d4;max-width:440px;margin:0 0 32px">임상 평가와 스트렝스 프로그래밍을 하나의 시스템으로 연결합니다. 물리치료사이자 파워리프팅 국내기록 보유자가 설계한 <br>코칭 시스템입니다.
@@ -91,24 +101,24 @@
   </div>
 
   <!-- ===== 문제 정의 ===== -->
-  <div class="sect grid-2" style="max-width:1320px;margin:0 auto;padding:96px 40px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:center;border-bottom:1px solid #1f1f1f">
+  <div class="sect grid-2" data-stagger style="max-width:1320px;margin:0 auto;padding:168px 40px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:center;border-bottom:1px solid #1f1f1f">
     <div>
       <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:14px">THE GRAY ZONE</div>
-      <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:clamp(26px,3vw,36px);line-height:1.2;margin:0;color:#ffffff">AN INTEGRATED SYSTEM</h2>
+      <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.025em;font-size:clamp(30px,4.2vw,48px);line-height:1.15;margin:0;color:#ffffff">AN INTEGRATED SYSTEM</h2>
     </div>
     <p style="font-size: 17px; line-height: 1.85; color: #a3a3a3; margin: 0; text-wrap: pretty">저도 다치고 난 뒤, 무엇을 해야 할지 알려주는 사람이 없었습니다. 그래서 제가 직접 찾아보기로 했습니다. 회복의 답을 찾기 위해 물리치료사가 됐고, 다시 강해질 수 있다는 걸 증명하기 위해 파워리프팅 선수가 됐습니다. 그 답을 담아 만든 게 REFORTIS입니다.</p>
   </div>
 
   <!-- ===== 방법론 ===== -->
-  <div id="method" class="sect" style="background:#111111;padding:100px 40px;border-bottom:1px solid #1f1f1f">
+  <div id="method" class="sect" style="background:#111111;padding:168px 40px;border-bottom:1px solid #1f1f1f">
     <div style="max-width:1320px;margin:0 auto">
-      <div style="text-align:center;max-width:640px;margin:0 auto 64px">
+      <div class="sect-head" data-reveal style="text-align:center;max-width:660px;margin:0 auto 80px">
         <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:14px">METHODOLOGY</div>
-        <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:clamp(28px,3.4vw,38px);line-height:1.2;margin:0 0 16px;color:#ffffff">임상 평가 + 스트렝스 프로그래밍,<br>둘 다 제대로</h2>
+        <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.025em;font-size:clamp(32px,4.6vw,54px);line-height:1.15;margin:0 0 18px;color:#ffffff">임상 평가 + 스트렝스 프로그래밍,<br>둘 다 제대로</h2>
         <p style="font-size:15px;color:#a3a3a3;line-height:1.6;margin:0">올바른 평가와 헬스장을 넘는 체계, 그 위에 데이터가 쌓입니다.</p>
       </div>
 
-      <div class="grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+      <div class="grid-3" data-stagger style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
         <div style="background:#161616;border:1px solid #2a2a2a;border-radius:14px;padding:34px 30px">
           <div style="font-family:'Inter',sans-serif;font-weight:900;letter-spacing:-0.03em;font-size:15px;color:#525252;margin-bottom:22px">01</div>
           <h3 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:19px;margin:0 0 12px;color:#ffffff">임상 평가</h3>
@@ -129,24 +139,24 @@
   </div>
 
   <!-- ===== 시네마틱 브레이크 ===== -->
-  <div style="position:relative;height:min(560px,72vh);min-height:400px;overflow:hidden;border-bottom:1px solid #1f1f1f">
+  <div style="position:relative;height:min(560px,72vh);height:min(560px,72dvh);min-height:400px;overflow:hidden;border-bottom:1px solid #1f1f1f">
     <div style="position:absolute;inset:0;overflow:hidden">
       <img src="assets/coach-bench.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:65% 45%;animation:kenburns2 18s ease-in-out infinite alternate">
     </div>
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,0.75) 0%,rgba(10,10,10,0.25) 35%,rgba(10,10,10,0.75) 100%)"></div>
     <div class="px" style="position:relative;z-index:1;max-width:1320px;margin:0 auto;height:100%;padding:0 40px;display:flex;align-items:center">
-      <h2 style="font-family:'Inter',sans-serif;font-weight:900;letter-spacing:-0.03em;font-size:clamp(30px,4.4vw,52px);line-height:1.15;color:#ffffff;margin:0;max-width:620px;text-wrap:pretty">설계한 대로, <br>결과가 쌓입니다.</h2>
+      <h2 data-reveal style="font-family:'Inter',sans-serif;font-weight:900;letter-spacing:-0.03em;font-size:clamp(34px,5vw,60px);line-height:1.12;color:#ffffff;margin:0;max-width:660px;text-wrap:pretty">설계한 대로, <br>결과가 쌓입니다.</h2>
     </div>
   </div>
 
   <!-- ===== 코치 소개 ===== -->
-  <div id="coach" class="sect grid-2b" style="max-width:1320px;margin:0 auto;padding:100px 40px;display:grid;grid-template-columns:0.8fr 1.2fr;gap:56px;align-items:start;border-bottom:1px solid #1f1f1f">
+  <div id="coach" class="sect grid-2b" style="max-width:1320px;margin:0 auto;padding:168px 40px;display:grid;grid-template-columns:0.8fr 1.2fr;gap:56px;align-items:start;border-bottom:1px solid #1f1f1f">
     <div class="coach-photo" style="position:sticky;top:24px">
-      <div style="aspect-ratio:4/5;border-radius:14px;overflow:hidden">
+      <div data-reveal style="aspect-ratio:4/5;border-radius:14px;overflow:hidden">
         <img src="assets/coach-portrait.jpg" alt="김강윤 코치" style="width:100%;height:100%;object-fit:cover;object-position:50% 25%">
       </div>
     </div>
-    <div>
+    <div data-reveal>
       <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:14px">ABOUT THE COACH</div>
       <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:clamp(26px,3vw,34px);line-height:1.2;margin:0 0 6px;color:#ffffff">김강윤</h2>
       <p style="font-size:15px;color:#a3a3a3;margin:0 0 32px">물리치료사 · 파워리프팅 벤치프레스 국가대표</p>
@@ -185,14 +195,14 @@
   </div>
 
   <!-- ===== 회원 사례 / 후기 ===== -->
-  <div id="results" class="sect" style="background:#111111;padding:100px 40px;border-bottom:1px solid #1f1f1f">
+  <div id="results" class="sect" style="background:#111111;padding:168px 40px;border-bottom:1px solid #1f1f1f">
     <div style="max-width:1320px;margin:0 auto">
-      <div style="text-align:center;max-width:600px;margin:0 auto 64px">
+      <div class="sect-head" data-reveal style="text-align:center;max-width:640px;margin:0 auto 80px">
         <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:14px">MEMBER RESULTS</div>
-        <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:clamp(28px,3.4vw,38px);line-height:1.2;margin:0;color:#ffffff">숫자로 증명된 변화</h2>
+        <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.025em;font-size:clamp(32px,4.6vw,54px);line-height:1.15;margin:0;color:#ffffff">숫자로 증명된 변화</h2>
       </div>
 
-      <div class="grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+      <div class="grid-3" data-stagger style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
         <div style="background:#161616;border:1px solid #2a2a2a;border-radius:14px;padding:30px;display:flex;flex-direction:column;gap:18px">
           <div style="font-size:12px;font-weight:700;color:#737373;letter-spacing:0.06em">CASE 01</div>
           <h3 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:17px;color:#ffffff;margin:0;line-height:1.4">파워리프팅 챔피언이 된 30대 여성</h3>
@@ -228,15 +238,15 @@
   </div>
 
   <!-- ===== 가격 ===== -->
-  <div id="pricing" class="sect" style="padding:100px 40px;background:#0a0a0a;border-bottom:1px solid #1f1f1f">
+  <div id="pricing" class="sect" style="padding:168px 40px;background:#0a0a0a;border-bottom:1px solid #1f1f1f">
     <div style="max-width:1320px;margin:0 auto">
-      <div style="text-align:center;max-width:600px;margin:0 auto 64px">
+      <div class="sect-head" data-reveal style="text-align:center;max-width:640px;margin:0 auto 80px">
         <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:14px">PRICING</div>
-        <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:clamp(28px,3.4vw,38px);line-height:1.2;margin:0 0 16px;color:#ffffff">나에게 맞는 방식으로</h2>
+        <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.025em;font-size:clamp(32px,4.6vw,54px);line-height:1.15;margin:0 0 18px;color:#ffffff">나에게 맞는 방식으로</h2>
         <p style="font-size:15px;color:#a3a3a3;line-height:1.6;margin:0">목표와 상황에 따라 상담 후 맞춤 프로그램을 안내해 드립니다.</p>
       </div>
 
-      <div class="grid-2" style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;align-items:stretch">
+      <div class="grid-2" data-stagger style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;align-items:stretch">
         <div style="border:1px solid #2a2a2a;border-radius:14px;padding:34px 30px;display:flex;flex-direction:column;gap:22px">
           <div>
             <h3 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:19px;margin:0 0 8px;color:#ffffff">온라인 코칭 — 스트렝스</h3>
@@ -272,11 +282,11 @@
   </div>
 
   <!-- ===== 원포인트 코칭 ===== -->
-  <div id="onepoint" class="sect" style="background:#111111;padding:100px 40px;border-bottom:1px solid #1f1f1f">
-    <div class="grid-2" style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:start">
+  <div id="onepoint" class="sect" style="background:#111111;padding:168px 40px;border-bottom:1px solid #1f1f1f">
+    <div class="grid-2" data-stagger style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:start">
       <div>
         <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:14px">ONE POINT CLASS</div>
-        <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:clamp(26px,3vw,34px);line-height:1.25;margin:0 0 14px;color:#ffffff">SQUAT · BENCH · DEADLIFT</h2>
+        <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.025em;font-size:clamp(30px,4.2vw,48px);line-height:1.18;margin:0 0 18px;color:#ffffff">SQUAT · BENCH · DEADLIFT</h2>
         <p style="font-size:15px;line-height:1.85;color:#a3a3a3;margin:0 0 28px">훈련을 하다 보면 지금 하고 있는 방식이 맞는지, 한 번쯤 점검해보고 싶어지는 순간이 있습니다.<br><br>본 수업은 스쿼트, 벤치프레스, 데드리프트 중 필요한 동작을 중심으로 진행됩니다. 놓치기 쉬운 디테일과 동작 흐름이 흐트러지는 지점을 중심으로 다루며, 수업 내용은 영상으로 정리해 이후 훈련에서도 참고할 수 있도록 제공합니다.</p>
         <p style="font-size:13.5px;color:#737373;margin:0">장소와 일정은 DM으로 문의주세요.</p>
       </div>
@@ -310,12 +320,12 @@
   </div>
 
   <!-- ===== CTA ===== -->
-  <div id="contact" class="sect" style="background:#0a0a0a;padding:100px 40px;border-bottom:1px solid #1f1f1f">
+  <div id="contact" class="sect" style="background:#0a0a0a;padding:168px 40px;border-bottom:1px solid #1f1f1f">
     <div style="max-width:920px;margin:0 auto;text-align:center">
-      <h2 style="font-family:'Inter',sans-serif;font-weight:900;letter-spacing:-0.03em;font-size:clamp(28px,3.5vw,40px);color:#ffffff;margin:0 0 16px">다시 강해질 준비가 되셨다면</h2>
-      <p style="font-size:15px;color:#a3a3a3;margin:0 0 48px">간단한 정보를 남겨주시면 24시간 내로 연락드립니다.</p>
+      <h2 data-reveal style="font-family:'Inter',sans-serif;font-weight:900;letter-spacing:-0.03em;font-size:clamp(32px,4.6vw,54px);line-height:1.15;color:#ffffff;margin:0 0 18px">다시 강해질 준비가 되셨다면</h2>
+      <p data-reveal style="font-size:15px;color:#a3a3a3;margin:0 0 48px">간단한 정보를 남겨주시면 24시간 내로 연락드립니다.</p>
 
-      <form id="contact-form" class="form-grid" action="https://formspree.io/f/mlgqdrgo" method="POST" style="background:#141414;border:1px solid #2a2a2a;border-radius:18px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:20px;text-align:left">
+      <form id="contact-form" class="form-grid" data-reveal action="https://formspree.io/f/mlgqdrgo" method="POST" style="background:#141414;border:1px solid #2a2a2a;border-radius:18px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:20px;text-align:left">
         <div style="display:flex;flex-direction:column;gap:8px">
           <label for="cf-name" style="font-size:12.5px;color:#a3a3a3;font-weight:700">이름</label>
           <input id="cf-name" name="name" type="text" required style="height:48px;border-radius:10px;background:#0a0a0a;border:1px solid #2a2a2a;color:#ffffff;padding:0 14px;font-size:14px;font-family:'Inter',sans-serif">
@@ -362,6 +372,46 @@
 </div>
 
 <script>
+  // 스크롤 진입 리빌 — 한 번만 실행, 카드는 시차를 두고 하나씩
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var step = window.innerWidth <= 860 ? 40 : 80;
+
+    document.querySelectorAll('[data-stagger]').forEach(function (box) {
+      Array.prototype.forEach.call(box.children, function (child, i) {
+        if (getComputedStyle(child).display === 'none') return;
+        child.setAttribute('data-reveal', '');
+        child.style.transitionDelay = (i * step) + 'ms';
+      });
+    });
+
+    var pending = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+    if (reduce) {
+      pending.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+
+    function check() {
+      var vh = window.innerHeight;
+      for (var i = pending.length - 1; i >= 0; i--) {
+        var el = pending[i];
+        var r = el.getBoundingClientRect();
+        // 요소가 화면 아래 92% 선을 넘어오면 노출 (한 번만)
+        if (r.top < vh * 0.92 && r.bottom > 0) {
+          el.classList.add('in');
+          pending.splice(i, 1);
+        }
+      }
+      if (!pending.length) {
+        window.removeEventListener('scroll', check);
+        window.removeEventListener('resize', check);
+      }
+    }
+    window.addEventListener('scroll', check, { passive: true });
+    window.addEventListener('resize', check);
+    check();
+  })();
+
   (function () {
     var track = document.querySelector('.sr-track');
     var card = document.getElementById('srCard');
