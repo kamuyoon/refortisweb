@@ -27,7 +27,7 @@
     .nav-links { display:none !important; }
     .nav { padding:18px 20px !important; }
     .px { padding-left:20px !important; padding-right:20px !important; }
-    .sect { padding-top:88px !important; padding-bottom:88px !important; padding-left:20px !important; padding-right:20px !important; }
+    .sect { padding-top:72px !important; padding-bottom:72px !important; padding-left:20px !important; padding-right:20px !important; }
     .grid-2, .grid-2b, .grid-3, .grid-2c, .form-grid { grid-template-columns:1fr !important; gap:16px !important; }
     .coach-photo { position:static !important; max-width:320px; margin:0 auto 8px; }
     .form-grid { padding:28px 22px !important; }
@@ -35,14 +35,13 @@
     .sr-card { width:94vw !important; }
     .sect-head { margin-bottom:44px !important; }
   }
-  /* 3단계 — 스크롤 스냅 (데스크톱 전용, proximity = 가까울 때만 부드럽게 맞춤) */
-  @media (min-width: 861px) and (prefers-reduced-motion: no-preference) {
-    html { scroll-snap-type: y proximity; scroll-behavior: smooth; }
-    .snap { scroll-snap-align: start; }
+  /* 스크롤 스냅은 끊기는 느낌 때문에 해제. 앵커 이동만 부드럽게 유지 */
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
   }
 
-  /* 2단계 — 한 화면에 하나씩 */
-  .screen { min-height:100vh; min-height:100dvh; display:flex; align-items:center; }
+  /* 콘텐츠가 채워지기 전까지 100dvh 강제는 하지 않음 (빈 화면 방지) */
+  .screen { display:flex; align-items:center; }
   .screen > * { width:100%; }
   .grid-sticky { display:grid; grid-template-columns:0.82fr 1.18fr; gap:72px; align-items:start; }
   .sticky-head { position:sticky; top:132px; }
@@ -120,7 +119,7 @@
   </div>
 
   <!-- ===== 문제 정의 ===== -->
-  <div class="sect grid-2 snap" data-stagger style="max-width:1320px;margin:0 auto;padding:168px 40px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:center;align-content:center;min-height:100dvh;border-bottom:1px solid #1f1f1f">
+  <div class="sect grid-2 snap" data-stagger style="max-width:1320px;margin:0 auto;padding:112px 40px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:center;align-content:center;border-bottom:1px solid #1f1f1f">
     <div>
       <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:14px">THE GRAY ZONE</div>
       <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.025em;font-size:clamp(30px,4.2vw,48px);line-height:1.15;margin:0;color:#ffffff">AN INTEGRATED SYSTEM</h2>
@@ -129,7 +128,7 @@
   </div>
 
   <!-- ===== 방법론 ===== -->
-  <div id="method" class="sect snap" style="background:#111111;padding:168px 40px;border-bottom:1px solid #1f1f1f">
+  <div id="method" class="sect snap" style="background:#111111;padding:112px 40px;border-bottom:1px solid #1f1f1f">
     <div class="grid-sticky" style="max-width:1320px;margin:0 auto">
       <div class="sticky-head" data-reveal>
         <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:16px">METHODOLOGY</div>
@@ -169,7 +168,7 @@
   </div>
 
   <!-- ===== 코치 소개 ===== -->
-  <div id="coach" class="sect grid-2b snap" style="max-width:1320px;margin:0 auto;padding:168px 40px;display:grid;grid-template-columns:0.8fr 1.2fr;gap:56px;align-items:start;border-bottom:1px solid #1f1f1f">
+  <div id="coach" class="sect grid-2b snap" style="max-width:1320px;margin:0 auto;padding:112px 40px;display:grid;grid-template-columns:0.8fr 1.2fr;gap:56px;align-items:start;border-bottom:1px solid #1f1f1f">
     <div class="coach-photo" style="position:sticky;top:24px">
       <div data-reveal style="aspect-ratio:4/5;border-radius:14px;overflow:hidden">
         <img src="assets/coach-portrait.jpg" alt="김강윤 코치" style="width:100%;height:100%;object-fit:cover;object-position:50% 25%">
@@ -214,7 +213,7 @@
   </div>
 
   <!-- ===== 회원 사례 / 후기 ===== -->
-  <div id="results" class="sect snap" style="background:#111111;padding:168px 40px;border-bottom:1px solid #1f1f1f">
+  <div id="results" class="sect snap" style="background:#111111;padding:112px 40px;border-bottom:1px solid #1f1f1f">
     <div class="grid-sticky" style="max-width:1320px;margin:0 auto">
       <div class="sticky-head" data-reveal>
         <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:16px">MEMBER RESULTS</div>
@@ -264,7 +263,7 @@
   </div>
 
   <!-- ===== 가격 ===== -->
-  <div id="pricing" class="sect screen snap" style="padding:168px 40px;background:#0a0a0a;border-bottom:1px solid #1f1f1f">
+  <div id="pricing" class="sect screen snap" style="padding:112px 40px;background:#0a0a0a;border-bottom:1px solid #1f1f1f">
     <div style="max-width:1320px;margin:0 auto">
       <div class="sect-head" data-reveal style="text-align:center;max-width:640px;margin:0 auto 80px">
         <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:14px">PRICING</div>
@@ -308,7 +307,7 @@
   </div>
 
   <!-- ===== 원포인트 코칭 ===== -->
-  <div id="onepoint" class="sect screen snap" style="background:#111111;padding:168px 40px;border-bottom:1px solid #1f1f1f">
+  <div id="onepoint" class="sect screen snap" style="background:#111111;padding:112px 40px;border-bottom:1px solid #1f1f1f">
     <div class="grid-2" data-stagger style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:start">
       <div>
         <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:14px">ONE POINT CLASS</div>
@@ -346,7 +345,7 @@
   </div>
 
   <!-- ===== CTA ===== -->
-  <div id="contact" class="sect screen snap" style="background:#0a0a0a;padding:168px 40px;border-bottom:1px solid #1f1f1f">
+  <div id="contact" class="sect screen snap" style="background:#0a0a0a;padding:112px 40px;border-bottom:1px solid #1f1f1f">
     <div style="max-width:920px;margin:0 auto;text-align:center">
       <h2 data-reveal style="font-family:'Inter',sans-serif;font-weight:900;letter-spacing:-0.03em;font-size:clamp(32px,4.6vw,54px);line-height:1.15;color:#ffffff;margin:0 0 18px">다시 강해질 준비가 되셨다면</h2>
       <p data-reveal style="font-size:15px;color:#a3a3a3;margin:0 0 48px">간단한 정보를 남겨주시면 24시간 내로 연락드립니다.</p>
