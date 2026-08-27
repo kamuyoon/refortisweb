@@ -160,8 +160,9 @@
       </div>
       <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,0.92) 0%,rgba(10,10,10,0.55) 42%,rgba(10,10,10,0.15) 68%,rgba(10,10,10,0.55) 100%)"></div>
       <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,10,0.85) 0%,rgba(10,10,10,0) 30%)"></div>
+      <canvas id="hero-fx" style="position:absolute;inset:0;z-index:1;pointer-events:none"></canvas>
 
-      <div class="px" style="position:relative;z-index:1;max-width:1320px;margin:0 auto;height:100%;padding:0 40px;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:72px;animation:fadeUp 0.9s ease-out both">
+      <div class="px" style="position:relative;z-index:2;max-width:1320px;margin:0 auto;height:100%;padding:0 40px;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:72px;animation:fadeUp 0.9s ease-out both">
         <h1 style="font-family: 'Inter',sans-serif; font-weight: 900; letter-spacing: -0.03em; line-height: 1.04; margin: 0 0 22px; color: #ffffff; text-wrap: pretty; max-width: 720px; font-size: clamp(46px, 5.2vw, 66px)">
           임상처럼 보고, <br>데이터로 설계합니다.
         </h1>
@@ -837,6 +838,33 @@
       submitBtn.textContent = '상담 신청하기';
     });
   });
+</script>
+
+<script>
+/* 히어로 라이브 파티클 — 코치 사진 위에 은은한 틸 네트워크(마우스 반응). 코드로만 그려 용량 0. */
+(function(){
+  var cv=document.getElementById('hero-fx'); if(!cv||!cv.getContext)return;
+  var host=cv.parentNode, ctx=cv.getContext('2d');
+  var reduce=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var touch=!!(window.matchMedia&&matchMedia('(hover: none)').matches);
+  var DPR=Math.min(window.devicePixelRatio||1,2), W=1,H=1, parts=[], mouse={x:-999,y:-999,on:0}, raf=0;
+  function size(){ var r=host.getBoundingClientRect(); W=r.width||host.clientWidth||1200; H=r.height||host.clientHeight||600; cv.width=W*DPR; cv.height=H*DPR; cv.style.width=W+'px'; cv.style.height=H+'px'; ctx.setTransform(DPR,0,0,DPR,0,0); }
+  function init(){ size(); var n=touch?16:Math.round(Math.min(64,W/24)); parts=[]; for(var i=0;i<n;i++)parts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*0.2,vy:(Math.random()-.5)*0.2}); }
+  function frame(){ if(!document.getElementById('hero-fx')){cancelAnimationFrame(raf);return;}
+    ctx.clearRect(0,0,W,H);
+    var i,a,b;
+    for(i=0;i<parts.length;i++){ var p=parts[i]; p.x+=p.vx; p.y+=p.vy; if(p.x<0||p.x>W)p.vx*=-1; if(p.y<0||p.y>H)p.vy*=-1;
+      if(mouse.on){ var dx=mouse.x-p.x,dy=mouse.y-p.y,d=Math.hypot(dx,dy); if(d<130){p.x+=dx*0.008;p.y+=dy*0.008;} }
+      ctx.beginPath(); ctx.arc(p.x,p.y,1.5,0,6.283); ctx.fillStyle='rgba(210,238,232,0.55)'; ctx.fill(); }
+    for(a=0;a<parts.length;a++){ for(b=a+1;b<parts.length;b++){ var pa=parts[a],pb=parts[b],dd=Math.hypot(pa.x-pb.x,pa.y-pb.y); if(dd<120){ ctx.strokeStyle='rgba(45,212,191,'+(0.10*(1-dd/120)).toFixed(3)+')'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(pa.x,pa.y); ctx.lineTo(pb.x,pb.y); ctx.stroke(); } }
+      if(mouse.on){ var dm=Math.hypot(parts[a].x-mouse.x,parts[a].y-mouse.y); if(dm<160){ ctx.strokeStyle='rgba(45,212,191,'+(0.34*(1-dm/160)).toFixed(3)+')'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(parts[a].x,parts[a].y); ctx.lineTo(mouse.x,mouse.y); ctx.stroke(); } } }
+    raf=requestAnimationFrame(frame); }
+  if(!touch){ host.addEventListener('mousemove',function(e){ var r=host.getBoundingClientRect(); mouse.x=e.clientX-r.left; mouse.y=e.clientY-r.top; mouse.on=1; }); host.addEventListener('mouseleave',function(){ mouse.on=0; }); }
+  window.addEventListener('resize',function(){ cancelAnimationFrame(raf); init(); if(!reduce)frame(); });
+  init();
+  if(!reduce)frame();
+  document.addEventListener('visibilitychange',function(){ if(document.hidden){cancelAnimationFrame(raf);} else if(!reduce&&document.getElementById('hero-fx')){cancelAnimationFrame(raf);frame();} });
+})();
 </script>
 
 </body>
