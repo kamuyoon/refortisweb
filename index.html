@@ -110,6 +110,13 @@
   .p-legend i { width:9px; height:3px; border-radius:2px; display:inline-block; }
   .p-comment { font-size:12px; line-height:1.7; color:#c9d1d9; }
   .p-quote { border-left:2px solid #0d9488; padding-left:10px; margin-top:10px; font-size:11.5px; color:#8b949e; line-height:1.6; }
+  .p-chart2 { width:100%; height:auto; display:block; }
+  .p-axis { font-size:8px; fill:#6e7681; font-family:'Inter',sans-serif; }
+  .p-cap { font-size:10px; color:#6e7681; margin:9px 2px 0; line-height:1.5; }
+  .p-repcard { background:#0f1620; border:1px solid rgba(255,255,255,0.06); border-top:2px solid #2dd4bf; border-radius:14px; padding:14px; }
+  .p-repbadge { background:rgba(45,212,191,0.16); color:#2dd4bf; font-size:9px; font-weight:800; padding:3px 8px; border-radius:7px; letter-spacing:0.02em; }
+  .p-repline { font-size:11px; line-height:1.6; color:#c9d1d9; margin-top:9px; }
+  .p-repline b { color:#e6edf3; font-weight:700; }
 
   .app-chip { position:absolute; background:rgba(17,17,17,0.92); border:1px solid #2a2a2a; border-radius:12px; padding:9px 13px; font-size:12px; font-weight:600; color:#e6edf3; display:flex; align-items:center; gap:8px; box-shadow:0 12px 30px rgba(0,0,0,0.5); animation:chipfloat 5s ease-in-out infinite; z-index:3; white-space:nowrap; }
   .app-chip i { width:7px; height:7px; border-radius:50%; background:#0d9488; flex:none; }
@@ -223,15 +230,15 @@
         <div class="app-tabs" id="appTabs">
           <button class="app-tab on" data-view="dash">
             <span class="app-tab-t"><span class="app-dot">1</span>대시보드</span>
-            <span class="app-tab-d">오늘의 처방, 3대 e1RM, 주간 볼륨과 근력 성향을 한 화면에서.</span>
+            <span class="app-tab-d">블록 전체의 주간 볼륨과 강도(e1RM 토탈)를 한 화면에서 추적합니다.</span>
           </button>
           <button class="app-tab" data-view="e1rm">
             <span class="app-tab-t"><span class="app-dot">2</span>e1RM 추이</span>
-            <span class="app-tab-d">스쿼트·벤치·데드리프트가 주차별로 어떻게 오르는지 그래프로.</span>
+            <span class="app-tab-d">스쿼트·벤치·데드의 주간 평균과 최고(peak) e1RM을 함께 봅니다.</span>
           </button>
           <button class="app-tab" data-view="report">
             <span class="app-tab-t"><span class="app-dot">3</span>주간 리포트</span>
-            <span class="app-tab-d">달성률과 코치 코멘트가 매주 자동으로 정리되어 도착합니다.</span>
+            <span class="app-tab-d">최고 e1RM·볼륨·처방 이행률·블록 퀘스트가 매주 자동 정리됩니다.</span>
           </button>
         </div>
       </div>
@@ -246,66 +253,90 @@
           <div class="phone-screen">
             <div class="p-status"><span>9:41</span><span>REFORTIS</span></div>
 
-            <!-- 대시보드 -->
+            <!-- 대시보드 : 전체 진행 — 주간 볼륨 & 강도 (삼대 합산) -->
             <div class="p-view on" data-view="dash">
-              <div class="p-hd">TODAY</div>
-              <div class="p-title">안녕하세요, 회원님</div>
-              <div class="p-stat3">
-                <div class="p-stat"><div class="l">스쿼트</div><div class="v"><span data-count="180">0</span></div><div class="u">kg e1RM</div></div>
-                <div class="p-stat"><div class="l">벤치</div><div class="v"><span data-count="130">0</span></div><div class="u">kg e1RM</div></div>
-                <div class="p-stat"><div class="l">데드</div><div class="v"><span data-count="200">0</span></div><div class="u">kg e1RM</div></div>
-              </div>
-              <div class="p-card" style="margin-bottom:12px">
-                <div class="p-row"><span class="k">주간 볼륨</span><span class="val"><span data-count="28400" data-comma="1">0</span> kg</span></div>
-                <div class="p-bar"><i data-fill="82%"></i></div>
-                <div class="p-row" style="margin:0"><span class="k">처방 달성률</span><span class="val">92%</span></div>
+              <div class="p-hd">OVERVIEW</div>
+              <div class="p-title">주간 볼륨 &amp; 강도</div>
+              <div class="p-kpi p-stat3">
+                <div class="p-stat"><div class="l">주간 볼륨</div><div class="v"><span data-count="20193" data-comma="1">0</span></div><div class="u">kg</div></div>
+                <div class="p-stat"><div class="l">이행률</div><div class="v" style="color:#3fb950"><span data-count="100">0</span><span style="font-size:10px">%</span></div><div class="u">61/57세트</div></div>
+                <div class="p-stat"><div class="l">3대 합계</div><div class="v"><span data-count="420">0</span></div><div class="u">kg e1RM</div></div>
               </div>
               <div class="p-card">
-                <div class="p-row" style="margin-bottom:6px"><span class="k">근력 성향</span><span class="val">고반복형</span></div>
-                <div class="p-gauge"><b data-pos="68%"></b></div>
-                <div class="p-row" style="margin:2px 0 0"><span class="k" style="font-size:10px">싱글</span><span class="k" style="font-size:10px">고반복</span></div>
+                <div style="display:flex;gap:14px;justify-content:center;margin-bottom:6px">
+                  <span style="font-size:9.5px;color:#8b949e;display:flex;align-items:center;gap:5px"><i style="width:8px;height:8px;border:1.5px solid #e6edf3;border-radius:50%;box-sizing:border-box"></i>e1RM 토탈</span>
+                  <span style="font-size:9.5px;color:#8b949e;display:flex;align-items:center;gap:5px"><i style="width:8px;height:8px;background:#58a6ff;border-radius:50%"></i>주간 볼륨</span>
+                </div>
+                <svg class="p-chart2" viewBox="0 0 264 152">
+                  <line class="grid-l" x1="0" y1="8" x2="264" y2="8"></line>
+                  <line class="grid-l" x1="0" y1="70" x2="264" y2="70"></line>
+                  <line class="grid-l" x1="0" y1="132" x2="264" y2="132"></line>
+                  <rect x="6" y="70.0" width="18" height="62.0" rx="3" fill="#4f9dff"></rect>
+                  <rect x="35.25" y="46.1" width="18" height="85.9" rx="3" fill="#5a86f0"></rect>
+                  <rect x="64.5" y="47.0" width="18" height="85.0" rx="3" fill="#6f6fe0"></rect>
+                  <rect x="93.75" y="43.4" width="18" height="88.6" rx="3" fill="#8957e5"></rect>
+                  <rect x="123.0" y="34.6" width="18" height="97.4" rx="3" fill="#a24fd0"></rect>
+                  <rect x="152.25" y="12.4" width="18" height="119.6" rx="3" fill="#bc4b81"></rect>
+                  <rect x="181.5" y="9.8" width="18" height="122.2" rx="3" fill="#c9445f"></rect>
+                  <rect x="210.75" y="30.1" width="18" height="101.9" rx="3" fill="#d13f4a"></rect>
+                  <rect x="240.0" y="87.7" width="18" height="44.3" rx="3" fill="#da3633"></rect>
+                  <polyline fill="none" stroke="#e6edf3" stroke-width="2" stroke-dasharray="1.5 4" stroke-linecap="round" points="15,116.5 44.25,94.8 73.5,76.2 102.75,54.5 132,29.7 161.25,17.3 190.5,20.4 219.75,63.8 249,122.7"></polyline>
+                  <text class="p-axis" x="15" y="146" text-anchor="middle">W1</text>
+                  <text class="p-axis" x="73.5" y="146" text-anchor="middle">W3</text>
+                  <text class="p-axis" x="132" y="146" text-anchor="middle">W1</text>
+                  <text class="p-axis" x="190.5" y="146" text-anchor="middle">W3</text>
+                  <text class="p-axis" x="249" y="146" text-anchor="middle">W1</text>
+                </svg>
               </div>
             </div>
 
-            <!-- e1RM 추이 -->
+            <!-- e1RM 추이 (SQ / BP / DL) -->
             <div class="p-view" data-view="e1rm">
               <div class="p-hd">STRENGTH</div>
               <div class="p-title">e1RM 추이</div>
               <div class="p-card">
-                <svg class="p-chart" viewBox="0 0 260 132" preserveAspectRatio="none">
-                  <line class="grid-l" x1="0" y1="33" x2="260" y2="33"></line>
-                  <line class="grid-l" x1="0" y1="66" x2="260" y2="66"></line>
-                  <line class="grid-l" x1="0" y1="99" x2="260" y2="99"></line>
-                  <polyline class="p-line" style="stroke:#f97583" points="6,96 50,90 94,84 138,74 182,66 226,58 254,52"></polyline>
-                  <polyline class="p-line" style="stroke:#58a6ff" points="6,74 50,68 94,64 138,54 182,46 226,40 254,34"></polyline>
-                  <polyline class="p-line" style="stroke:#0d9488" points="6,110 50,104 94,96 138,88 182,80 226,70 254,64"></polyline>
+                <svg class="p-chart2" viewBox="0 0 264 152">
+                  <line class="grid-l" x1="0" y1="20" x2="264" y2="20"></line>
+                  <line class="grid-l" x1="0" y1="72" x2="264" y2="72"></line>
+                  <line class="grid-l" x1="0" y1="124" x2="264" y2="124"></line>
+                  <!-- DL amber -->
+                  <polyline fill="none" stroke="#e3b341" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" points="14,41.9 90,38.3 174,29.5 250,49.0"></polyline>
+                  <polyline fill="none" stroke="#e3b341" stroke-width="1.8" stroke-dasharray="1.5 3.5" stroke-linecap="round" points="14,29.5 90,27.7 174,18.9 250,20.6"></polyline>
+                  <!-- SQ blue -->
+                  <polyline fill="none" stroke="#58a6ff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" points="14,112.7 90,110.9 174,107.4 250,119.8"></polyline>
+                  <polyline fill="none" stroke="#58a6ff" stroke-width="1.8" stroke-dasharray="1.5 3.5" stroke-linecap="round" points="14,102.1 90,96.8 174,95.0 250,95.0"></polyline>
+                  <!-- BP green -->
+                  <polyline fill="none" stroke="#3fb950" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" points="14,132.2 90,128.7 174,130.5 250,128.7"></polyline>
+                  <polyline fill="none" stroke="#3fb950" stroke-width="1.8" stroke-dasharray="1.5 3.5" stroke-linecap="round" points="14,126.9 90,125.1 174,125.1 250,125.1"></polyline>
+                  <text class="p-axis" x="14" y="146" text-anchor="middle">W1</text>
+                  <text class="p-axis" x="90" y="146" text-anchor="middle">W2</text>
+                  <text class="p-axis" x="174" y="146" text-anchor="middle">W3</text>
+                  <text class="p-axis" x="250" y="146" text-anchor="middle">W4</text>
                 </svg>
-                <div class="p-legend">
-                  <span><i style="background:#f97583"></i>스쿼트</span>
-                  <span><i style="background:#58a6ff"></i>벤치</span>
-                  <span><i style="background:#0d9488"></i>데드</span>
+                <div class="p-legend" style="justify-content:center">
+                  <span><i style="background:#58a6ff"></i>SQ</span>
+                  <span><i style="background:#3fb950"></i>BP</span>
+                  <span><i style="background:#e3b341"></i>DL</span>
                 </div>
               </div>
-              <div class="p-stat3" style="margin-top:12px">
-                <div class="p-stat"><div class="l">이번 주</div><div class="v" style="color:#0d9488;font-size:15px">+5.0</div><div class="u">kg</div></div>
-                <div class="p-stat"><div class="l">4주 누적</div><div class="v" style="color:#0d9488;font-size:15px">+18.5</div><div class="u">kg</div></div>
-                <div class="p-stat"><div class="l">최고 RPE</div><div class="v" style="font-size:15px">8.5</div><div class="u">유지</div></div>
-              </div>
+              <div class="p-cap">실선 = 주간 평균 e1RM · 점선 = 주간 최고(peak)</div>
             </div>
 
-            <!-- 리포트 -->
+            <!-- 주간 리포트 (Block 1 - T W1) -->
             <div class="p-view" data-view="report">
-              <div class="p-hd">WEEKLY</div>
+              <div class="p-hd">WEEKLY REPORT</div>
               <div class="p-title">주간 리포트</div>
-              <div class="p-stat3">
-                <div class="p-stat"><div class="l">달성률</div><div class="v" style="color:#0d9488"><span data-count="92">0</span><span style="font-size:11px">%</span></div></div>
-                <div class="p-stat"><div class="l">세션</div><div class="v">4<span style="font-size:11px">/4</span></div></div>
-                <div class="p-stat"><div class="l">총 톤수</div><div class="v" style="font-size:14px">28.4<span style="font-size:10px">t</span></div></div>
-              </div>
-              <div class="p-card" style="margin-top:12px">
-                <div class="p-hd" style="margin-bottom:8px">COACH COMMENT</div>
-                <div class="p-comment">데드 상승세 좋습니다. 이번 주는 벤치 텐션 잡는 구간만 조금 더 신경 써주세요.</div>
-                <div class="p-quote">다음 주: 스쿼트 톤수 5% 상향, RPE 8 유지</div>
+              <div class="p-repcard">
+                <div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap">
+                  <span style="font-size:12px">📋</span>
+                  <b style="font-size:12.5px;color:#e6edf3">Block 1 · T W1</b>
+                  <span class="p-repbadge">발행됨</span>
+                </div>
+                <div class="p-repline">📍 <b>Block 1 - T</b> 1주차 / 총 4주 — 3주 더 이어집니다</div>
+                <div class="p-repline">📊 3대 최고 e1RM — <b>SQ 165 · BP 95 · DL 160</b> kg</div>
+                <div class="p-repline">📦 주간 볼륨 <b>20,193 kg</b></div>
+                <div class="p-repline">✅ 처방 이행률 <b style="color:#3fb950">100%</b> (61/57세트) — 거의 완벽하게 따라와 주셨습니다</div>
+                <div class="p-repline">🎯 블록 퀘스트 — SQ 145×3 · BP 85×1 · DL 150×4</div>
               </div>
             </div>
 
