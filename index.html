@@ -31,8 +31,6 @@
     .grid-2, .grid-2b, .grid-3, .grid-2c, .form-grid { grid-template-columns:1fr !important; gap:16px !important; }
     .coach-photo { position:static !important; max-width:320px; margin:0 auto 8px; }
     .form-grid { padding:28px 22px !important; }
-    .sr-track { height:140vh !important; height:140dvh !important; }
-    .sr-card { width:94vw !important; }
     .sect-head { margin-bottom:44px !important; }
   }
   /* 스크롤 스냅은 끊기는 느낌 때문에 해제. 앵커 이동만 부드럽게 유지 */
@@ -59,32 +57,77 @@
     .screen { min-height:0; }
   }
 
-  .sr-track { position:relative; height:220vh; height:220dvh; }
-  .sr-sticky { position:sticky; top:0; height:100vh; height:100dvh; display:flex; flex-direction:column; align-items:center; justify-content:center; overflow:hidden; }
-  .sr-card { position:relative; width:min(1100px,90vw); aspect-ratio:16/10; border-radius:28px; border:4px solid #2a2a2a; background:#111; overflow:hidden; box-shadow:0 40px 80px rgba(0,0,0,0.5); will-change:transform; }
-  .sr-video { width:100%; height:100%; object-fit:cover; display:block; }
-  .sr-overlay { position:absolute; inset:0; background:#0a0a0a; pointer-events:none; }
+  .prx { will-change:transform; }
+
+  /* ===== APP / PHONE MOCKUP ===== */
+  @keyframes floaty { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+  @keyframes chipfloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
+  .app-grid { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; max-width:1160px; margin:0 auto; }
+  .app-tabs { display:flex; flex-direction:column; gap:12px; margin-top:30px; max-width:440px; }
+  .app-tab { text-align:left; background:#111; border:1px solid #262626; border-radius:14px; padding:18px 20px; cursor:pointer; transition:border-color .3s, background .3s, transform .3s; color:#a3a3a3; font-family:'Inter',sans-serif; }
+  .app-tab:hover { border-color:#3a3a3a; }
+  .app-tab.on { border-color:#0d9488; background:#0e1514; transform:translateX(4px); }
+  .app-tab .app-tab-t { display:flex; align-items:center; gap:10px; font-size:15.5px; font-weight:700; color:#ffffff; letter-spacing:-0.01em; }
+  .app-tab .app-tab-d { font-size:13px; line-height:1.55; margin:7px 0 0 26px; color:#8f8f8f; max-height:0; overflow:hidden; opacity:0; transition:max-height .35s ease, opacity .35s ease, margin .35s ease; }
+  .app-tab.on .app-tab-d { max-height:80px; opacity:1; }
+  .app-dot { width:16px; height:16px; border-radius:5px; flex:none; background:#262626; display:grid; place-items:center; color:#0d9488; }
+  .app-tab.on .app-dot { background:#0d9488; color:#04110f; }
+
+  .phone-wrap { display:flex; justify-content:center; position:relative; }
+  .phone-fx { position:absolute; inset:-6% -12%; background:radial-gradient(closest-side, rgba(13,148,136,0.22), transparent 72%); filter:blur(6px); pointer-events:none; }
+  .phone { position:relative; width:294px; aspect-ratio:9/19.3; background:#050505; border:2px solid #2b2b2b; border-radius:44px; padding:11px; box-shadow:0 40px 90px rgba(0,0,0,0.6), inset 0 0 0 2px #000; animation:floaty 6s ease-in-out infinite; will-change:transform; }
+  .phone-screen { position:relative; width:100%; height:100%; background:#0d1117; border-radius:34px; overflow:hidden; }
+  .phone-notch { position:absolute; top:11px; left:50%; transform:translateX(-50%); width:96px; height:26px; background:#000; border-radius:16px; z-index:6; }
+  .p-status { position:absolute; top:0; left:0; right:0; height:44px; display:flex; align-items:center; justify-content:space-between; padding:14px 22px 0; font-size:12px; font-weight:600; color:#e6edf3; z-index:5; }
+  .p-view { position:absolute; inset:0; padding:52px 16px 16px; opacity:0; transform:translateY(10px) scale(.985); transition:opacity .45s ease, transform .45s ease; pointer-events:none; overflow:hidden; }
+  .p-view.on { opacity:1; transform:none; pointer-events:auto; }
+  .p-hd { font-size:11px; font-weight:700; letter-spacing:0.14em; color:#0d9488; margin:0 2px 4px; }
+  .p-title { font-size:19px; font-weight:800; letter-spacing:-0.02em; color:#e6edf3; margin:0 2px 16px; }
+  .p-card { background:#161b22; border:1px solid rgba(255,255,255,0.06); border-radius:15px; padding:14px; }
+  .p-stat3 { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:12px; }
+  .p-stat { background:#161b22; border:1px solid rgba(255,255,255,0.06); border-radius:13px; padding:12px 8px; text-align:center; }
+  .p-stat .l { font-size:10px; color:#8b949e; margin-bottom:6px; }
+  .p-stat .v { font-size:17px; font-weight:800; color:#e6edf3; letter-spacing:-0.02em; }
+  .p-stat .u { font-size:9px; color:#8b949e; }
+  .p-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
+  .p-row .k { font-size:12px; color:#8b949e; }
+  .p-row .val { font-size:12px; color:#e6edf3; font-weight:700; }
+  .p-bar { height:7px; background:#0d1117; border-radius:6px; overflow:hidden; margin-bottom:12px; }
+  .p-bar > i { display:block; height:100%; background:linear-gradient(90deg,#0d9488,#2dd4bf); border-radius:6px; width:0; transition:width 1.1s cubic-bezier(.16,1,.3,1); }
+  .p-gauge { position:relative; height:8px; background:#0d1117; border-radius:6px; margin:8px 0 4px; }
+  .p-gauge > b { position:absolute; top:-3px; width:14px; height:14px; border-radius:50%; background:#0d9488; box-shadow:0 0 0 3px rgba(13,148,136,0.25); left:0; transition:left 1.1s cubic-bezier(.16,1,.3,1); }
+  .p-tabbar { position:absolute; left:10px; right:10px; bottom:12px; height:52px; background:rgba(1,4,9,0.9); border:1px solid rgba(255,255,255,0.06); border-radius:16px; display:flex; z-index:5; backdrop-filter:blur(8px); }
+  .p-tabbar > span { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; font-size:9px; color:#8b949e; }
+  .p-tabbar > span.act { color:#0d9488; }
+  .p-tabbar svg { width:19px; height:19px; }
+  .p-chart { width:100%; height:132px; display:block; }
+  .p-chart .grid-l { stroke:rgba(255,255,255,0.05); stroke-width:1; }
+  .p-line { fill:none; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:600; stroke-dashoffset:600; }
+  .p-view.on .p-line { animation:draw 1.5s cubic-bezier(.16,1,.3,1) forwards; }
+  @keyframes draw { to{stroke-dashoffset:0} }
+  .p-legend { display:flex; gap:12px; margin-top:10px; padding:0 2px; }
+  .p-legend span { display:flex; align-items:center; gap:5px; font-size:10.5px; color:#8b949e; }
+  .p-legend i { width:9px; height:3px; border-radius:2px; display:inline-block; }
+  .p-comment { font-size:12px; line-height:1.7; color:#c9d1d9; }
+  .p-quote { border-left:2px solid #0d9488; padding-left:10px; margin-top:10px; font-size:11.5px; color:#8b949e; line-height:1.6; }
+
+  .app-chip { position:absolute; background:rgba(17,17,17,0.92); border:1px solid #2a2a2a; border-radius:12px; padding:9px 13px; font-size:12px; font-weight:600; color:#e6edf3; display:flex; align-items:center; gap:8px; box-shadow:0 12px 30px rgba(0,0,0,0.5); animation:chipfloat 5s ease-in-out infinite; z-index:3; white-space:nowrap; }
+  .app-chip i { width:7px; height:7px; border-radius:50%; background:#0d9488; flex:none; }
+  .app-chip.c1 { top:8%; left:-6%; animation-delay:.2s; }
+  .app-chip.c2 { top:44%; right:-9%; animation-delay:1.4s; }
+  .app-chip.c3 { bottom:9%; left:-3%; animation-delay:.8s; }
+  @media (prefers-reduced-motion: reduce){ .phone,.app-chip{animation:none} }
+  @media (max-width: 860px) {
+    .app-grid { grid-template-columns:1fr !important; gap:34px !important; }
+    .app-tabs { margin:0 auto; }
+    .app-chip.c1{left:2%} .app-chip.c2{right:0%} .app-chip.c3{left:2%}
+    .phone { width:270px; }
+  }
 </style>
 <script>document.documentElement.className += ' js';</script>
 </head>
 <body>
 <div style="width:100%;min-width:320px;background:#0a0a0a;color:#ffffff;overflow-x:clip">
-
-  <!-- ===== SCROLL VIDEO REVEAL ===== -->
-  <div style="background:#0a0a0a">
-    <div class="sr-track">
-      <div class="sr-sticky">
-        <div class="px" style="text-align:center;margin-bottom:28px">
-          <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:14px">REAL-TIME DATA</div>
-          <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.025em;font-size:clamp(30px,4.6vw,52px);line-height:1.15;margin:0;color:#ffffff">숫자가 증명합니다</h2>
-        </div>
-        <div class="sr-card" id="srCard">
-          <video class="sr-video" src="assets/data-analytics.mp4" autoplay muted loop playsinline preload="auto"></video>
-          <div class="sr-overlay" id="srOverlay"></div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- ===== HEADER + HERO ===== -->
   <div class="snap" style="background:#0a0a0a;position:relative;border-bottom:1px solid #1f1f1f">
@@ -105,7 +148,7 @@
     </nav>
 
     <div style="position:relative;height:min(760px,92vh);height:min(760px,92dvh);min-height:520px;overflow:hidden">
-      <div style="position:absolute;inset:0;overflow:hidden">
+      <div class="prx" data-speed="0.14" style="position:absolute;left:0;right:0;top:-11%;height:122%;overflow:hidden">
         <img src="assets/coach-portrait.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 20%;animation:kenburns 16s ease-in-out infinite alternate;transform-origin:60% 30%">
       </div>
       <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,0.92) 0%,rgba(10,10,10,0.55) 42%,rgba(10,10,10,0.15) 68%,rgba(10,10,10,0.55) 100%)"></div>
@@ -169,9 +212,117 @@
     </div>
   </div>
 
+  <!-- ===== 앱 / 폰 목업 ===== -->
+  <div id="app" class="sect snap" style="background:#0a0a0a;padding:120px 40px;border-bottom:1px solid #1f1f1f;overflow:hidden">
+    <div class="app-grid">
+      <div data-reveal>
+        <div style="font-family:ui-monospace,monospace;font-size:12px;color:#737373;letter-spacing:0.08em;margin-bottom:16px">THE APP</div>
+        <h2 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.025em;font-size:clamp(30px,4.4vw,50px);line-height:1.15;margin:0 0 18px;color:#ffffff">코칭이, 손 안에서<br>돌아갑니다</h2>
+        <p style="font-size:15px;color:#a3a3a3;line-height:1.75;margin:0">평가부터 프로그램, e1RM 추이와 주간 리포트까지 — 회원이 실제로 쥐고 쓰는 전용 앱. 훈련하는 그 순간에 필요한 화면만 담았습니다.</p>
+
+        <div class="app-tabs" id="appTabs">
+          <button class="app-tab on" data-view="dash">
+            <span class="app-tab-t"><span class="app-dot">1</span>대시보드</span>
+            <span class="app-tab-d">오늘의 처방, 3대 e1RM, 주간 볼륨과 근력 성향을 한 화면에서.</span>
+          </button>
+          <button class="app-tab" data-view="e1rm">
+            <span class="app-tab-t"><span class="app-dot">2</span>e1RM 추이</span>
+            <span class="app-tab-d">스쿼트·벤치·데드리프트가 주차별로 어떻게 오르는지 그래프로.</span>
+          </button>
+          <button class="app-tab" data-view="report">
+            <span class="app-tab-t"><span class="app-dot">3</span>주간 리포트</span>
+            <span class="app-tab-d">달성률과 코치 코멘트가 매주 자동으로 정리되어 도착합니다.</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="phone-wrap" data-reveal>
+        <div class="phone-fx"></div>
+        <div class="app-chip c1"><i></i>e1RM 자동 산출</div>
+        <div class="app-chip c2"><i></i>영상 폼 체크</div>
+        <div class="app-chip c3"><i></i>주간 리포트</div>
+        <div class="phone" id="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="p-status"><span>9:41</span><span>REFORTIS</span></div>
+
+            <!-- 대시보드 -->
+            <div class="p-view on" data-view="dash">
+              <div class="p-hd">TODAY</div>
+              <div class="p-title">안녕하세요, 회원님</div>
+              <div class="p-stat3">
+                <div class="p-stat"><div class="l">스쿼트</div><div class="v"><span data-count="180">0</span></div><div class="u">kg e1RM</div></div>
+                <div class="p-stat"><div class="l">벤치</div><div class="v"><span data-count="130">0</span></div><div class="u">kg e1RM</div></div>
+                <div class="p-stat"><div class="l">데드</div><div class="v"><span data-count="200">0</span></div><div class="u">kg e1RM</div></div>
+              </div>
+              <div class="p-card" style="margin-bottom:12px">
+                <div class="p-row"><span class="k">주간 볼륨</span><span class="val"><span data-count="28400" data-comma="1">0</span> kg</span></div>
+                <div class="p-bar"><i data-fill="82%"></i></div>
+                <div class="p-row" style="margin:0"><span class="k">처방 달성률</span><span class="val">92%</span></div>
+              </div>
+              <div class="p-card">
+                <div class="p-row" style="margin-bottom:6px"><span class="k">근력 성향</span><span class="val">고반복형</span></div>
+                <div class="p-gauge"><b data-pos="68%"></b></div>
+                <div class="p-row" style="margin:2px 0 0"><span class="k" style="font-size:10px">싱글</span><span class="k" style="font-size:10px">고반복</span></div>
+              </div>
+            </div>
+
+            <!-- e1RM 추이 -->
+            <div class="p-view" data-view="e1rm">
+              <div class="p-hd">STRENGTH</div>
+              <div class="p-title">e1RM 추이</div>
+              <div class="p-card">
+                <svg class="p-chart" viewBox="0 0 260 132" preserveAspectRatio="none">
+                  <line class="grid-l" x1="0" y1="33" x2="260" y2="33"></line>
+                  <line class="grid-l" x1="0" y1="66" x2="260" y2="66"></line>
+                  <line class="grid-l" x1="0" y1="99" x2="260" y2="99"></line>
+                  <polyline class="p-line" style="stroke:#f97583" points="6,96 50,90 94,84 138,74 182,66 226,58 254,52"></polyline>
+                  <polyline class="p-line" style="stroke:#58a6ff" points="6,74 50,68 94,64 138,54 182,46 226,40 254,34"></polyline>
+                  <polyline class="p-line" style="stroke:#0d9488" points="6,110 50,104 94,96 138,88 182,80 226,70 254,64"></polyline>
+                </svg>
+                <div class="p-legend">
+                  <span><i style="background:#f97583"></i>스쿼트</span>
+                  <span><i style="background:#58a6ff"></i>벤치</span>
+                  <span><i style="background:#0d9488"></i>데드</span>
+                </div>
+              </div>
+              <div class="p-stat3" style="margin-top:12px">
+                <div class="p-stat"><div class="l">이번 주</div><div class="v" style="color:#0d9488;font-size:15px">+5.0</div><div class="u">kg</div></div>
+                <div class="p-stat"><div class="l">4주 누적</div><div class="v" style="color:#0d9488;font-size:15px">+18.5</div><div class="u">kg</div></div>
+                <div class="p-stat"><div class="l">최고 RPE</div><div class="v" style="font-size:15px">8.5</div><div class="u">유지</div></div>
+              </div>
+            </div>
+
+            <!-- 리포트 -->
+            <div class="p-view" data-view="report">
+              <div class="p-hd">WEEKLY</div>
+              <div class="p-title">주간 리포트</div>
+              <div class="p-stat3">
+                <div class="p-stat"><div class="l">달성률</div><div class="v" style="color:#0d9488"><span data-count="92">0</span><span style="font-size:11px">%</span></div></div>
+                <div class="p-stat"><div class="l">세션</div><div class="v">4<span style="font-size:11px">/4</span></div></div>
+                <div class="p-stat"><div class="l">총 톤수</div><div class="v" style="font-size:14px">28.4<span style="font-size:10px">t</span></div></div>
+              </div>
+              <div class="p-card" style="margin-top:12px">
+                <div class="p-hd" style="margin-bottom:8px">COACH COMMENT</div>
+                <div class="p-comment">데드 상승세 좋습니다. 이번 주는 벤치 텐션 잡는 구간만 조금 더 신경 써주세요.</div>
+                <div class="p-quote">다음 주: 스쿼트 톤수 5% 상향, RPE 8 유지</div>
+              </div>
+            </div>
+
+            <div class="p-tabbar" id="pTabbar">
+              <span class="act" data-view="dash"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>홈</span>
+              <span data-view="e1rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3,17 9,11 13,15 21,6"/></svg>추이</span>
+              <span data-view="report"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="8" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg>리포트</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ===== 시네마틱 브레이크 ===== -->
   <div class="snap" style="position:relative;height:min(560px,72vh);height:min(560px,72dvh);min-height:400px;overflow:hidden;border-bottom:1px solid #1f1f1f">
-    <div style="position:absolute;inset:0;overflow:hidden">
+    <div class="prx" data-speed="0.16" style="position:absolute;left:0;right:0;top:-13%;height:126%;overflow:hidden">
       <img src="assets/coach-bench.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:65% 45%;animation:kenburns2 18s ease-in-out infinite alternate">
     </div>
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,0.75) 0%,rgba(10,10,10,0.25) 35%,rgba(10,10,10,0.75) 100%)"></div>
@@ -276,7 +427,7 @@
 
     <div class="feat-card" data-reveal style="max-width:1320px;margin:56px auto 0;background:#161616;border:1px solid #ffffff;border-radius:18px;padding:40px 42px">
       <div style="font-size:12px;font-weight:700;color:#d4d4d4;letter-spacing:0.06em;margin-bottom:12px">FEATURED · BEFORE / AFTER</div>
-      <h3 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.025em;font-size:clamp(22px,2.6vw,34px);color:#ffffff;margin:0 0 8px;line-height:1.25">스모데드리프트 138kg → 200kg</h3>
+      <h3 style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.025em;font-size:clamp(22px,2.6vw,34px);color:#ffffff;margin:0 0 8px;line-height:1.25">스모데드리프트 138kg → <span data-count="200">0</span>kg</h3>
       <p style="font-size:14.5px;color:#a3a3a3;line-height:1.7;margin:0 0 28px">5월 31일 → 7월 22일</p>
       <div class="ba-grid">
         <figure style="margin:0">
@@ -503,36 +654,66 @@
     check();
   })();
 
+  // ===== 스크롤 패럴랙스 =====
   (function () {
-    var track = document.querySelector('.sr-track');
-    var card = document.getElementById('srCard');
-    var overlay = document.getElementById('srOverlay');
-    if (!track || !card) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var layers = Array.prototype.slice.call(document.querySelectorAll('[data-speed]'));
+    if (!layers.length) return;
     var ticking = false;
-
-    function update() {
+    function apply() {
       ticking = false;
-      var rect = track.getBoundingClientRect();
       var vh = window.innerHeight;
-      var scrollRange = rect.height - vh;
-      var progress = scrollRange > 0 ? (-rect.top) / scrollRange : 1;
-      progress = Math.max(0, Math.min(1, progress));
-      var rotate = 20 * (1 - progress);
-      var scale = 0.82 + 0.18 * progress;
-      card.style.transform = 'perspective(1200px) rotateX(' + rotate + 'deg) scale(' + scale + ')';
-      overlay.style.opacity = (1 - progress) * 0.85;
+      layers.forEach(function (el) {
+        var host = el.parentElement;
+        var r = host.getBoundingClientRect();
+        if (r.bottom < -200 || r.top > vh + 200) return;
+        var center = r.top + r.height / 2 - vh / 2;
+        var speed = parseFloat(el.dataset.speed) || 0.12;
+        el.style.transform = 'translate3d(0,' + (center * -speed).toFixed(1) + 'px,0)';
+      });
     }
-
-    function onScroll() {
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(update);
-      }
-    }
-
+    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(apply); } }
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
-    update();
+    apply();
+  })();
+
+  // ===== 숫자 카운트업 =====
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function run(el) {
+      var target = parseFloat(el.dataset.count);
+      var dec = parseInt(el.dataset.dec || '0', 10);
+      var comma = el.dataset.comma === '1';
+      if (reduce) { el.textContent = fmt(target, dec, comma); return; }
+      var dur = 1200, t0 = null;
+      function fmt(v, d, c) { var s = d ? v.toFixed(d) : String(Math.round(v)); return c ? Number(s).toLocaleString('en-US') : s; }
+      function step(ts) {
+        if (!t0) t0 = ts;
+        var p = Math.min((ts - t0) / dur, 1);
+        var e = 1 - Math.pow(1 - p, 3);
+        el.textContent = fmt(target * e, dec, comma);
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    function fmt(v, d, c) { var s = d ? v.toFixed(d) : String(Math.round(v)); return c ? Number(s).toLocaleString('en-US') : s; }
+    window.__countUpIn = function (root) {
+      (root || document).querySelectorAll('[data-count]').forEach(function (el) {
+        if (el.dataset.done) return; el.dataset.done = '1'; run(el);
+      });
+    };
+    // 폰 밖의 일반 카운트업은 화면 진입 시
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (ents) {
+        ents.forEach(function (e) { if (e.isIntersecting) { window.__countUpIn(e.target); io.unobserve(e.target); } });
+      }, { threshold: 0.4 });
+      document.querySelectorAll('[data-count]:not(.phone [data-count])').forEach(function (el) {
+        if (!el.closest('.phone')) io.observe(el);
+      });
+    } else {
+      window.__countUpIn(document);
+    }
   })();
 
   document.querySelectorAll('.mode-btn').forEach(function (btn) {
@@ -548,6 +729,55 @@
       document.getElementById('cf-mode').value = btn.dataset.mode;
     });
   });
+
+  // ===== 앱 폰 목업: 탭 전환 + 자동 순환 + 게이지 =====
+  (function () {
+    var order = ['dash', 'e1rm', 'report'];
+    var views = document.querySelectorAll('.p-view');
+    var tabs = document.querySelectorAll('#appTabs .app-tab');
+    var barTabs = document.querySelectorAll('#pTabbar span');
+    if (!views.length) return;
+    var current = 'dash', filled = false, auto = true;
+
+    function fillDash() {
+      document.querySelectorAll('.p-bar > i').forEach(function (i) { i.style.width = i.dataset.fill; });
+      document.querySelectorAll('.p-gauge > b').forEach(function (b) { b.style.left = 'calc(' + b.dataset.pos + ' - 7px)'; });
+    }
+    function show(v) {
+      current = v;
+      views.forEach(function (el) { el.classList.toggle('on', el.dataset.view === v); });
+      tabs.forEach(function (el) { el.classList.toggle('on', el.dataset.view === v); });
+      barTabs.forEach(function (el) { el.classList.toggle('act', el.dataset.view === v); });
+      if (v === 'dash' && filled) fillDash();
+    }
+    function pick(v) { auto = false; show(v); }
+    tabs.forEach(function (t) { t.addEventListener('click', function () { pick(t.dataset.view); }); });
+    barTabs.forEach(function (t) { t.addEventListener('click', function () { pick(t.dataset.view); }); });
+
+    // 폰이 보이면 대시보드 게이지 채우고 자동 순환 시작
+    var phone = document.querySelector('.phone-wrap');
+    var started = false;
+    function start() {
+      if (started) return;
+      started = true; filled = true;
+      if (current === 'dash') fillDash();
+      if (window.__countUpIn) window.__countUpIn(phone);
+      setInterval(function () {
+        if (!auto) return;
+        show(order[(order.indexOf(current) + 1) % order.length]);
+      }, 3200);
+    }
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (ents) {
+        ents.forEach(function (e) { if (e.isIntersecting) { start(); io.disconnect(); } });
+      }, { threshold: 0.01, rootMargin: '0px 0px -8% 0px' });
+      io.observe(phone);
+      // 폴백: IO가 어떤 이유로든 안 걸려도 결국 채워지도록
+      setTimeout(start, 6000);
+    } else {
+      start();
+    }
+  })();
 
   document.getElementById('contact-form').addEventListener('submit', function (e) {
     e.preventDefault();
